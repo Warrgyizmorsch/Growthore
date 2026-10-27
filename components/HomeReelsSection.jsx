@@ -114,12 +114,12 @@ export default function HomeReelsSection() {
               <span>—</span> REELS WE'VE MADE
             </div>
             <h2 className="home-reels-title">Content that stops the scroll.</h2>
-          </div>
-
-          <div className="home-reels-head-right">
             <p className="home-reels-desc">
               Short-form video engineered for algorithmic reach and direct-response conversions across Meta and YouTube.
             </p>
+          </div>
+
+          <div className="home-reels-head-right">
             <div className="home-reels-nav-btns">
               <button
                 type="button"

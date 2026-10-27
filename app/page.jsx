@@ -688,7 +688,7 @@ export default function HomePage() {
         <HomeReelsSection />
 
         {/* TESTIMONIALS SECTION */}
-        <section className="sec alt">
+        <section className="sec alt" id="testimonials">
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
@@ -698,21 +698,22 @@ export default function HomePage() {
                   to say about working with us.
                 </p>
               </div>
-              <div className="ctrl">
-                <button type="button" id="prev" aria-label="Previous testimonial" onClick={() => scrollCarousel('prev')}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
-                    <path d="M19 12H5M11 6l-6 6 6 6" />
-                  </svg>
-                </button>
-                <button type="button" id="next" className="fwd" aria-label="Next testimonial" onClick={() => scrollCarousel('next')}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                  </svg>
-                </button>
-              </div>
             </div>
 
-            <div className="carousel" id="car" ref={carRef} tabIndex={0} aria-label="Testimonials">
+            <div className="carousel-wrapper">
+              <button
+                type="button"
+                id="prev"
+                className="carousel-nav-btn prev-btn"
+                aria-label="Previous testimonial"
+                onClick={() => scrollCarousel('prev')}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+
+              <div className="carousel" id="car" ref={carRef} tabIndex={0} aria-label="Testimonials">
               <article className="tcard">
                 <div className="qm">“</div>
                 <blockquote>
@@ -865,8 +866,21 @@ export default function HomePage() {
                 </div>
               </article>
             </div>
+
+            <button
+              type="button"
+              id="next"
+              className="carousel-nav-btn next-btn"
+              aria-label="Next testimonial"
+              onClick={() => scrollCarousel('next')}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* TEAM SECTION */}
         <HomeTeamSection />
