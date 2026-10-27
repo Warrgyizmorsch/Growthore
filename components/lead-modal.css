@@ -1,0 +1,481 @@
+/* ==========================================================================
+   GrowthOre Global Lead Modal Styles
+   Self-contained & universal across all pages (Home, About, Blog, etc.)
+   ========================================================================== */
+
+.pop {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999999 !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 16px !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+.pop.open {
+  visibility: visible !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+}
+
+.pop-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(2, 6, 20, 0.8) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.pop.open .pop-bg {
+  opacity: 1 !important;
+}
+
+.pop-box {
+  position: relative !important;
+  width: min(920px, 100%) !important;
+  max-height: calc(100dvh - 32px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr) !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+  background: #071233 !important;
+  border: 1px solid rgba(150, 182, 255, 0.25) !important;
+  box-shadow: 0 0 120px rgba(47, 107, 255, 0.35), 0 40px 80px rgba(0, 0, 0, 0.6) !important;
+  opacity: 0 !important;
+  transform: translateY(30px) scale(0.96) !important;
+  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  color: #ffffff !important;
+}
+
+.pop.open .pop-box {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.pop-x {
+  position: absolute !important;
+  right: 16px !important;
+  top: 16px !important;
+  z-index: 10 !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  background: rgba(140, 175, 255, 0.12) !important;
+  border: 1px solid rgba(150, 182, 255, 0.25) !important;
+  cursor: pointer !important;
+  color: #ffffff !important;
+  transition: background 0.25s, transform 0.3s ease !important;
+}
+
+.pop-x:hover {
+  background: #2F6BFF !important;
+  transform: rotate(90deg) !important;
+}
+
+.pop-x svg {
+  width: 18px !important;
+  height: 18px !important;
+  stroke: #ffffff !important;
+}
+
+/* Modal Sidebar */
+.pop-side {
+  position: relative !important;
+  padding: 36px 32px !important;
+  background: linear-gradient(160deg, #1B48D8, #0A1F6E 70%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 22px !important;
+  overflow: hidden !important;
+  color: #ffffff !important;
+}
+
+.pop-side::before {
+  content: '';
+  position: absolute;
+  width: 340px;
+  aspect-ratio: 1;
+  right: -140px;
+  top: -120px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  animation: spin2 50s linear infinite;
+  pointer-events: none;
+}
+
+.pop-side::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: -80px;
+  bottom: -140px;
+  background: radial-gradient(closest-side, rgba(124, 196, 255, 0.5), transparent);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.pop-side h3 {
+  font-family: var(--display, 'Sora', sans-serif) !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  position: relative !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+}
+
+.pop-side .proof {
+  position: relative !important;
+  padding: 16px 18px !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.pop-side .proof strong {
+  font-family: var(--display, 'Sora', sans-serif) !important;
+  font-size: 28px !important;
+  letter-spacing: -0.03em !important;
+  display: block !important;
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+}
+
+.pop-side .proof span {
+  font-size: 13px !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.pop-side .next-steps {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  gap: 14px !important;
+  position: relative !important;
+  counter-reset: n !important;
+}
+
+.pop-side .next-steps li {
+  display: grid !important;
+  grid-template-columns: 28px 1fr !important;
+  gap: 12px !important;
+  font-size: 13.5px !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  counter-increment: n !important;
+  align-items: center !important;
+}
+
+.pop-side .next-steps li::before {
+  content: counter(n) !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  color: #1B48D8 !important;
+  font-weight: 800 !important;
+  font-size: 13px !important;
+  display: grid !important;
+  place-items: center !important;
+}
+
+.pop-side .reach {
+  position: relative !important;
+  margin-top: auto !important;
+  font-size: 13px !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  display: grid !important;
+  gap: 2px !important;
+}
+
+/* Modal Main Form Area */
+.pop-main {
+  padding: 36px 34px 30px !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 22px !important;
+  color: #ffffff !important;
+  background: #071233 !important;
+}
+
+.pop-prog {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  color: var(--muted, #8495C0) !important;
+  padding-right: 52px !important;
+}
+
+.pop-prog i {
+  flex: 1 !important;
+  height: 3px !important;
+  border-radius: 2px !important;
+  background: rgba(140, 175, 255, 0.18) !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.pop-prog i::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: var(--p, 50%) !important;
+  background: linear-gradient(90deg, #2F6BFF, #9DBBFF) !important;
+  box-shadow: 0 0 10px #2F6BFF !important;
+  transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.pstep {
+  display: none !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  animation: stepIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.pstep.on {
+  display: flex !important;
+}
+
+.pstep h4 {
+  margin: 0 !important;
+  font-family: var(--display, 'Sora', sans-serif) !important;
+  font-size: 22px !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  color: #ffffff !important;
+}
+
+/* Fieldset and Legends */
+.fg {
+  display: grid !important;
+  gap: 10px !important;
+  border: none !important;
+  outline: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+}
+
+.fg legend,
+.fg label.l {
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: var(--silver, #C9D5F5) !important;
+  padding: 0 !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+  border: none !important;
+}
+
+/* Choice Pills (Checkboxes & Radios) */
+.opts {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+.opt {
+  position: relative !important;
+  display: inline-block !important;
+}
+
+.opt input {
+  position: absolute !important;
+  opacity: 0 !important;
+  inset: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: pointer !important;
+  z-index: 2 !important;
+}
+
+.opt span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 9px 16px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(150, 182, 255, 0.28) !important;
+  background: rgba(140, 175, 255, 0.05) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: var(--silver, #C9D5F5) !important;
+  transition: background 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s !important;
+  cursor: pointer !important;
+}
+
+.opt input:hover + span {
+  border-color: rgba(150, 182, 255, 0.6) !important;
+  color: #ffffff !important;
+}
+
+.opt input:checked + span {
+  background: linear-gradient(135deg, #2F6BFF, #5E8DFF) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(47, 107, 255, 0.55) !important;
+}
+
+/* Two column field inputs */
+.grid2 {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 14px !important;
+}
+
+.field {
+  display: grid !important;
+  gap: 7px !important;
+  min-width: 0 !important;
+}
+
+.field label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--silver, #C9D5F5) !important;
+}
+
+.field label em {
+  font-style: normal !important;
+  color: var(--muted, #8495C0) !important;
+  font-weight: 500 !important;
+}
+
+.field input,
+.field textarea {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  font: inherit !important;
+  font-size: 14.5px !important;
+  color: #ffffff !important;
+  background: rgba(140, 175, 255, 0.06) !important;
+  border: 1px solid rgba(150, 182, 255, 0.25) !important;
+  border-radius: 12px !important;
+  padding: 12px 14px !important;
+  outline: none !important;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s !important;
+}
+
+.field textarea {
+  resize: vertical !important;
+  min-height: 84px !important;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #6C9BFF !important;
+  background: rgba(140, 175, 255, 0.1) !important;
+  box-shadow: 0 0 0 4px rgba(47, 107, 255, 0.2) !important;
+}
+
+.field.bad input {
+  border-color: #FF7A7A !important;
+}
+
+.err {
+  font-size: 12px !important;
+  color: #FF9A9A !important;
+  min-height: 0 !important;
+}
+
+/* Actions */
+.pop-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  margin-top: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+.pop-actions .fine {
+  font-size: 12.5px !important;
+  color: var(--muted, #8495C0) !important;
+}
+
+.pop-actions .back {
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #8FB2FF !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: color 0.2s !important;
+}
+
+.pop-actions .back:hover {
+  color: #ffffff !important;
+}
+
+.pop-actions .btn.btn-white {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 11px 22px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #2F6BFF, #5E8DFF) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 25px rgba(47, 107, 255, 0.5) !important;
+  cursor: pointer !important;
+  border: none !important;
+  transition: transform 0.25s, box-shadow 0.25s !important;
+}
+
+.pop-actions .btn.btn-white:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 35px rgba(47, 107, 255, 0.7) !important;
+}
+
+.pop-actions .btn.btn-white:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+  .pop {
+    place-items: end center !important;
+    padding: 0 !important;
+  }
+  .pop-box {
+    grid-template-columns: 1fr !important;
+    border-radius: 24px 24px 0 0 !important;
+    max-height: 92dvh !important;
+  }
+  .pop-side {
+    padding: 20px 22px 16px !important;
+    gap: 8px !important;
+  }
+  .pop-side h3 {
+    font-size: 20px !important;
+    padding-right: 44px !important;
+  }
+  .pop-side .proof,
+  .pop-side .next-steps,
+  .pop-side .reach {
+    display: none !important;
+  }
+  .pop-main {
+    padding: 20px 20px 24px !important;
+  }
+  .grid2 {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -1,0 +1,54 @@
+/* ==========================================================================
+   GrowthOre Floating WhatsApp Button Styles
+   Fixed bottom-left on all pages across the entire website
+   ========================================================================== */
+
+.floating-whatsapp-btn {
+  position: fixed !important;
+  bottom: 28px !important;
+  left: 28px !important;
+  right: auto !important;
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 50% !important;
+  background: #25D366 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.52), 0 3px 10px rgba(0, 0, 0, 0.25) !important;
+  z-index: 99999 !important;
+  cursor: pointer !important;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease !important;
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+.floating-whatsapp-btn:hover {
+  transform: scale(1.12) !important;
+  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.72), 0 5px 14px rgba(0, 0, 0, 0.3) !important;
+}
+
+.floating-whatsapp-btn:focus-visible {
+  outline: 3px solid #ffffff !important;
+  outline-offset: 3px !important;
+}
+
+.floating-whatsapp-btn svg {
+  width: 36px !important;
+  height: 36px !important;
+  fill: #ffffff !important;
+  display: block !important;
+}
+
+@media (max-width: 600px) {
+  .floating-whatsapp-btn {
+    bottom: 20px !important;
+    left: 20px !important;
+    width: 56px !important;
+    height: 56px !important;
+  }
+  .floating-whatsapp-btn svg {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}

@@ -1,0 +1,40 @@
+# ----------------------------------------------------------------------
+# GrowthOre - Apache .htaccess Configuration (Single Routes)
+# ----------------------------------------------------------------------
+
+RewriteEngine On
+
+# 1. Redirect index.html directly to root domain /
+RewriteCond %{THE_REQUEST} \s/index\.html[?\s] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# 2. Redirect direct .html requests to clean URL
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[?\s] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 3. Single Route Aliases (1:1 per page)
+
+# Block lp-performance-landing-page on growthore.co.uk domain
+RewriteCond %{HTTP_HOST} (growthore\.co\.uk) [NC]
+RewriteRule ^lp-performance-landing-page/?$ - [R=404,L]
+
+RewriteRule ^performance-marketing/?$ performance.html [L,NC]
+RewriteRule ^social-media-marketing/?$ social-media.html [L,NC]
+RewriteRule ^ai-seo/?$ ai-seo-blue.html [L,NC]
+RewriteRule ^about-us/?$ about.html [L,NC]
+RewriteRule ^contact-us/?$ contact.html [L,NC]
+RewriteRule ^thank-you/?$ thank-you.html [L,NC]
+RewriteRule ^lp-performance-landing-page/?$ lp-performance-landing-page.html [L,NC]
+RewriteRule ^lp-performance-marketing-agency/?$ lp-performance-marketing-agency.html [L,NC]
+
+# 4. Standard clean URL rewrite: if [request].html exists, serve it internally
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# 5. Security & Browser Caching Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

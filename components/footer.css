@@ -1,0 +1,187 @@
+/* ==========================================================================
+   GrowthOre Global Footer Styles
+   Guarantees 100% consistent footer layout across all pages
+   ========================================================================== */
+
+footer {
+  background: var(--ink, #061132) !important;
+  border-top: 1px solid rgba(150, 182, 255, 0.08) !important;
+  padding-top: 60px !important;
+  padding-bottom: 30px !important;
+  overflow: hidden !important;
+  color: #ffffff !important;
+  position: relative !important;
+  width: 100% !important;
+}
+
+footer .wrap {
+  max-width: 1320px !important;
+  margin-inline: auto !important;
+  padding-inline: clamp(16px, 4vw, 28px) !important;
+  box-sizing: border-box !important;
+}
+
+/* 4-Column Grid */
+.fcols {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr !important;
+  gap: clamp(24px, 3.5vw, 48px) !important;
+  align-items: start !important;
+}
+
+.fcols > div {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.fcols h4 {
+  margin: 0 0 16px 0 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  font-family: var(--display, 'Sora', sans-serif) !important;
+  font-weight: 700 !important;
+}
+
+.fcols p {
+  display: block !important;
+  color: var(--muted, #8495C0) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin: 0 0 10px 0 !important;
+}
+
+.fcols a {
+  display: block !important;
+  color: var(--muted, #8495C0) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 10px !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.fcols a:hover {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Footer Logo */
+.fcols a.logo {
+  display: inline-block !important;
+  margin-bottom: 18px !important;
+}
+
+.logo-img.logo-footer {
+  height: 38px !important;
+  width: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+/* UK Brand Legal Identity Block */
+.footer-legal-identity {
+  margin-top: 10px !important;
+  margin-bottom: 14px !important;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  color: #8fa6ce !important;
+  display: block !important;
+}
+
+.footer-legal-identity p {
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  margin: 0 0 6px 0 !important;
+  color: #8fa6ce !important;
+  display: block !important;
+}
+
+.footer-legal-identity a {
+  display: inline !important;
+  color: #48a9ff !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  margin-bottom: 0 !important;
+  transition: color 0.2s ease !important;
+}
+
+.footer-legal-identity a:hover {
+  color: #82c8ff !important;
+  text-decoration: underline !important;
+}
+
+.footer-legal-identity strong {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Footer Bottom Bar */
+.fbot {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  margin-top: 56px !important;
+  padding-top: 24px !important;
+  border-top: 1px solid rgba(150, 182, 255, 0.08) !important;
+  color: var(--muted, #8495C0) !important;
+  font-size: 13.5px !important;
+}
+
+.fbot span {
+  display: inline-block !important;
+}
+
+/* Wordmark */
+.wordmark {
+  font-family: var(--display, 'Plus Jakarta Sans', system-ui, sans-serif) !important;
+  font-weight: 800 !important;
+  font-size: clamp(38px, 9vw, 120px) !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  color: transparent !important;
+  -webkit-text-stroke: 1.5px rgba(150, 182, 255, 0.32) !important;
+  margin-top: clamp(24px, 4vw, 44px) !important;
+  margin-bottom: 12px !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  padding-inline: 16px !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.wordmark:hover {
+  -webkit-text-stroke: 1.5px #0088FF !important;
+  color: rgba(0, 136, 255, 0.18) !important;
+  text-shadow: 0 0 30px rgba(0, 136, 255, 0.65), 0 0 70px rgba(0, 136, 255, 0.35) !important;
+  letter-spacing: 0.16em !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Responsive Footer */
+@media (max-width: 900px) {
+  .fcols {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .fcols > div:first-child {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .fcols {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .fbot {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+}
