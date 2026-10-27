@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Marquee from '../components/Marquee';
+import HomeReelsSection from '../components/HomeReelsSection';
+import HomeTeamSection from '../components/HomeTeamSection';
 import './home.css';
 
 export default function HomePage() {
@@ -682,6 +684,9 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* REELS SHOWCASE SECTION */}
+        <HomeReelsSection />
+
         {/* TESTIMONIALS SECTION */}
         <section className="sec alt">
           <div className="wrap">
@@ -862,6 +867,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* TEAM SECTION */}
+        <HomeTeamSection />
 
         {/* GROWTHORE FAQ SECTION */}
         <section className="growthore-faq" id="faq" aria-labelledby="growthore-faq-title">
