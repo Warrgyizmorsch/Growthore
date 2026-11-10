@@ -2,6 +2,20 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import {
+  Check,
+  ArrowRight,
+  ArrowUpRight,
+  Search,
+  Home,
+  ShoppingCart,
+  HeartPulse,
+  GraduationCap,
+  Utensils,
+  Plane,
+  Layers,
+  Sparkles,
+} from 'lucide-react';
 import Marquee from '@/components/Marquee';
 import './social.css';
 
@@ -463,16 +477,6 @@ export default function SocialMediaPage() {
               <span style={{ color: '#fff' }}>Social Media Marketing</span>
             </nav>
             <div className="headwrap">
-              <span className="soc ig" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r=".6" fill="#fff" />
-                </svg>
-              </span>
-              <span className="soc yt" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M9 7.5l8 4.5-8 4.5z" fill="#fff" /></svg>
-              </span>
               <span className="soc ln" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
               </span>
@@ -504,18 +508,16 @@ export default function SocialMediaPage() {
                 </div>
               </div>
 
-              <span className="sk">
-                <span className="live" />Social Media Marketing Agency · India &amp; UK
-              </span>
               <h1 className="sh1">
-                <span className="line"><span className="w" style={{ '--i': 0 }}>Content people</span></span>
                 <span className="line">
-                  <span className="stk">stop</span>{' '}
-                  <span className="w warm-t" style={{ '--i': 2 }}>scrolling for</span>
+                  <span className="w" style={{ '--i': 0 }}>Best Social Media</span>
+                </span>
+                <span className="line">
+                  <span className="w warm-t" style={{ '--i': 1 }}>Marketing Agency UK</span>
                 </span>
               </h1>
               <p className="shsub">
-                We&apos;re a <strong>social media marketing agency</strong> that plans, shoots, edits and posts reels, carousels and stories your buyers actually watch, and then turns the best ones into sales.
+                <strong>Stop scrolling. Start growing.</strong> We help UK businesses stand out with creative social media content, targeted ads and smart strategies that attract the right audience, build engagement and turn followers into customers.
               </p>
               <div className="shctas">
                 <button
@@ -523,7 +525,7 @@ export default function SocialMediaPage() {
                   className="btn btn-white"
                   onClick={() => handleOpenLead('Social Media')}
                 >
-                  Get a free content audit{' '}
+                  Let&apos;s Grow Your Brand{' '}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -534,6 +536,17 @@ export default function SocialMediaPage() {
 
             {/* COVERFLOW 3D REELS */}
             <div className="cf-wrap">
+              <span className="soc ig" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r=".6" fill="#fff" />
+                </svg>
+              </span>
+              <span className="soc yt" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 7.5l8 4.5-8 4.5z" fill="#fff" /></svg>
+              </span>
+
               <div className="cf" id="cf" aria-roledescription="carousel" aria-label="Reels we made">
                 {REELS.map((r, k) => {
                   let d = k - currentReel;
@@ -663,13 +676,14 @@ export default function SocialMediaPage() {
         <section className="sec" id="work">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">Our feed</span>
-                <h2>Brands we create content for.</h2>
-              </div>
-              <div className="r">
-                <p>Appliances, tiles, furniture, electricals, education and news. Tap any post to see the brief and what we made.</p>
-              </div>
+              <h2>
+                <span className="h2-line">Social Media Content That</span>
+                <span className="h2-line">Makes Brands Stand Out.</span>
+              </h2>
+              <p>
+                From furniture and lifestyle to education and technology, we create engaging social media posts, reels and campaigns for businesses across different industries.<br className="d-none d-sm-inline" />
+                Explore our work and see how we bring brands to life online.
+              </p>
             </div>
 
             <div className="prof rv">
@@ -820,16 +834,17 @@ export default function SocialMediaPage() {
         </div>
 
         {/* FORMATS BENTO */}
-        <section className="sec alt" id="formats">
+        <section className="sec" id="formats">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">What we make</span>
-                <h2>Every format your feed needs. Try them.</h2>
-              </div>
-              <div className="r">
-                <p>Swipe the carousel, vote in the story, expand the post. Each format has its own job in your funnel.</p>
-              </div>
+              <h2>
+                <span className="h2-line">Creative Social Media Content</span>
+                <span className="h2-line">That Gets Your Brand Noticed.</span>
+              </h2>
+              <p>
+                From eye-catching reels to engaging posts and stories, we create social media content that connects with your audience,<br className="d-none d-sm-inline" />
+                builds brand awareness and helps your UK business grow online.
+              </p>
             </div>
 
             <div className="fmt">
@@ -1024,13 +1039,14 @@ export default function SocialMediaPage() {
         <section className="sec" id="hooks">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">Hook lab</span>
-                <h2>The first second decides everything.</h2>
-              </div>
-              <div className="r">
-                <p>Pick your industry and a hook style. Watch how we&apos;d open your next reel.</p>
-              </div>
+              <h2>
+                <span className="h2-line h2-line-nowrap">Scroll-Stopping Social Media Hooks</span>
+                <span className="h2-line">That Grab Attention.</span>
+              </h2>
+              <p>
+                The first few seconds can make all the difference. Explore creative video hooks tailored to your industry<br className="d-none d-sm-inline" />
+                and see how we turn everyday ideas into engaging reels and social media content that keeps people watching.
+              </p>
             </div>
 
             <div className="lab">
@@ -1175,13 +1191,14 @@ export default function SocialMediaPage() {
         <section className="sec alt" id="mix">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">Content mix builder</span>
-                <h2>What should you actually post?</h2>
-              </div>
-              <div className="r">
-                <p>Choose your goal and who you sell to. We&apos;ll show the mix and posting rhythm we&apos;d start you with.</p>
-              </div>
+              <h2>
+                <span className="h2-line h2-line-nowrap">Build a Social Media Content Strategy</span>
+                <span className="h2-line">That Drives Growth.</span>
+              </h2>
+              <p>
+                Not sure what to post on social media? Choose your business goals, target audience and preferred platform.<br className="d-none d-sm-inline" />
+                Discover a tailored content plan designed to boost engagement, reach potential customers and grow your brand online.
+              </p>
             </div>
 
             <div className="mix rv">
@@ -1341,13 +1358,14 @@ export default function SocialMediaPage() {
         <section className="sec" id="calendar">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">How a month runs</span>
-                <h2>A calendar you approve. Posts that go out on time.</h2>
-              </div>
-              <div className="r">
-                <p>Every month starts with a plan you can see, tap and approve. Filter by platform and tap any post to preview it.</p>
-              </div>
+              <h2>
+                <span className="h2-line h2-line-nowrap">Smart Social Media Content Planning.</span>
+                <span className="h2-line">Consistent Posting.</span>
+              </h2>
+              <p>
+                Stay active on social media without the daily hassle. We create a monthly content calendar with planned posts, engaging captions and scheduled content.<br className="d-none d-sm-inline" />
+                Review everything before it goes live and keep your brand consistent across every platform.
+              </p>
             </div>
 
             <div className="cal rv">
@@ -1482,14 +1500,284 @@ export default function SocialMediaPage() {
           </div>
         </section>
 
+        {/* INDUSTRIES WE WORK WITH */}
+        <section className="sec alt industries-sec" id="industries">
+          {/* Top-Right & Bottom-Right Decorative Blue Orbital Curves */}
+          <svg className="industries-orbit-top" viewBox="0 0 340 240" fill="none" aria-hidden="true">
+            <circle cx="290" cy="-10" r="175" fill="#0d3b8c" fillOpacity="0.28" stroke="#2584ff" strokeOpacity="0.45" strokeWidth="1.2" />
+            <circle cx="330" cy="20" r="145" fill="#1554c0" fillOpacity="0.22" stroke="#3b82f6" strokeOpacity="0.35" strokeWidth="1" />
+          </svg>
+          <svg className="industries-orbit-bottom" viewBox="0 0 560 220" fill="none" aria-hidden="true">
+            <path d="M 80 230 Q 250 110 435 230" fill="#0d357a" fillOpacity="0.3" stroke="#2584ff" strokeOpacity="0.5" strokeWidth="1.2" />
+            <path d="M 245 230 Q 430 75 580 95 L 580 230 Z" fill="#0a285e" fillOpacity="0.35" stroke="#2584ff" strokeOpacity="0.4" strokeWidth="1.2" />
+          </svg>
+
+          <div className="wrap industries-wrap">
+            {/* Top Centered Header (Centered, 2 lines H2, 2 lines description, no eyebrow) */}
+            <div className="head rv">
+              <h2>
+                Different Industries.<br />
+                Same <span className="industries-title-accent">Growth Mindset.</span>
+              </h2>
+              <p>
+                We create tailored social media strategies for businesses across different industries,<br className="d-none d-sm-inline" />
+                helping brands build meaningful connections, increase engagement and reach the right customers.
+              </p>
+            </div>
+
+            {/* 8-CARD (4x2) INDUSTRIES GRID */}
+            <div className="industries-grid">
+              {/* Card 1: Real Estate */}
+              <article className="industry-card rv">
+                <div>
+                  <div className="industry-img-wrap">
+                    <img src="/images/social-industries/real-estate.webp" alt="Real Estate & Property" loading="lazy" className="industry-img" />
+                    <div className="industry-fade-mask" />
+                  </div>
+                  <div className="industry-card-body">
+                    <div className="industry-icon-badge">
+                      <Home size={20} strokeWidth={2} />
+                    </div>
+                    <h3 className="industry-card-title">Real Estate &amp; Property</h3>
+                    <p className="industry-card-desc">
+                      Build brand awareness, generate quality leads and showcase properties through engaging social media campaigns.
+                    </p>
+                  </div>
+                </div>
+                <div className="industry-card-footer">
+                  <button type="button" onClick={() => handleOpenLead('Real Estate & Property')} className="industry-action-link">
+                    <span>Explore Solutions</span>
+                    <ArrowRight size={13} strokeWidth={2.2} />
+                  </button>
+                  <button type="button" onClick={() => handleOpenLead('Real Estate & Property')} aria-label="Explore Real Estate" className="industry-arrow-btn">
+                    <ArrowRight size={14} strokeWidth={2} />
+                  </button>
+                </div>
+              </article>
+
+              {/* Card 2: eCommerce */}
+              <article className="industry-card rv">
+                <div>
+                  <div className="industry-img-wrap">
+                    <img src="/images/social-industries/ecommerce-retail.webp" alt="eCommerce & Retail" loading="lazy" className="industry-img" />
+                    <div className="industry-fade-mask" />
+                  </div>
+                  <div className="industry-card-body">
+                    <div className="industry-icon-badge">
+                      <ShoppingCart size={20} strokeWidth={2} />
+                    </div>
+                    <h3 className="industry-card-title">eCommerce &amp; Retail</h3>
+                    <p className="industry-card-desc">
+                      Drive sales and customer loyalty with creative, data-driven social media strategies.
+                    </p>
+                  </div>
+                </div>
+                <div className="industry-card-footer">
+                  <button type="button" onClick={() => handleOpenLead('eCommerce & Retail')} className="industry-action-link">
+                    <span>Explore Solutions</span>
+                    <ArrowRight size={13} strokeWidth={2.2} />
+                  </button>
+                  <button type="button" onClick={() => handleOpenLead('eCommerce & Retail')} aria-label="Explore eCommerce" className="industry-arrow-btn">
+                    <ArrowRight size={14} strokeWidth={2} />
+                  </button>
+                </div>
+              </article>
+
+              {/* Card 3: Healthcare */}
+              <article className="industry-card rv">
+                <div>
+                  <div className="industry-img-wrap">
+                    <img src="/images/social-industries/healthcare-wellness.webp" alt="Healthcare & Wellness" loading="lazy" className="industry-img" />
+                    <div className="industry-fade-mask" />
+                  </div>
+                  <div className="industry-card-body">
+                    <div className="industry-icon-badge">
+                      <HeartPulse size={20} strokeWidth={2} />
+                    </div>
+                    <h3 className="industry-card-title">Healthcare &amp; Wellness</h3>
+                    <p className="industry-card-desc">
+                      Educate, engage and build trust with targeted social media campaigns.
+                    </p>
+                  </div>
+                </div>
+                <div className="industry-card-footer">
+                  <button type="button" onClick={() => handleOpenLead('Healthcare & Wellness')} className="industry-action-link">
+                    <span>Explore Solutions</span>
+                    <ArrowRight size={13} strokeWidth={2.2} />
+                  </button>
+                  <button type="button" onClick={() => handleOpenLead('Healthcare & Wellness')} aria-label="Explore Healthcare" className="industry-arrow-btn">
+                    <ArrowRight size={14} strokeWidth={2} />
+                  </button>
+                </div>
+              </article>
+
+              {/* Card 4: Education */}
+              <article className="industry-card rv">
+                <div>
+                  <div className="industry-img-wrap">
+                    <img src="/images/social-industries/education-edtech.webp" alt="Education & EdTech" loading="lazy" className="industry-img" />
+                    <div className="industry-fade-mask" />
+                  </div>
+                  <div className="industry-card-body">
+                    <div className="industry-icon-badge">
+                      <GraduationCap size={20} strokeWidth={2} />
+                    </div>
+                    <h3 className="industry-card-title">Education &amp; EdTech</h3>
+                    <p className="industry-card-desc">
+                      Reach the right students, increase enrolments and grow your brand online.
+                    </p>
+                  </div>
+                </div>
+                <div className="industry-card-footer">
+                  <button type="button" onClick={() => handleOpenLead('Education & EdTech')} className="industry-action-link">
+                    <span>Explore Solutions</span>
+                    <ArrowRight size={13} strokeWidth={2.2} />
+                  </button>
+                  <button type="button" onClick={() => handleOpenLead('Education & EdTech')} aria-label="Explore Education" className="industry-arrow-btn">
+                    <ArrowRight size={14} strokeWidth={2} />
+                  </button>
+                </div>
+              </article>
+
+              {/* Card 5: Food & Hospitality */}
+              <article className="industry-card rv">
+                <div>
+                  <div className="industry-img-wrap">
+                    <img src="/images/social-industries/food-hospitality.webp" alt="Food & Hospitality" loading="lazy" className="industry-img" />
+                    <div className="industry-fade-mask" />
+                  </div>
+                  <div className="industry-card-body">
+                    <div className="industry-icon-badge">
+                      <Utensils size={20} strokeWidth={2} />
+                    </div>
+                    <h3 className="industry-card-title">Food &amp; Hospitality</h3>
+                    <p className="industry-card-desc">
+                      Create buzz, drive footfall and turn followers into loyal customers.
+                    </p>
+                  </div>
+                </div>
+                <div className="industry-card-footer">
+                  <button type="button" onClick={() => handleOpenLead('Food & Hospitality')} className="industry-action-link">
+                    <span>Explore Solutions</span>
+                    <ArrowRight size={13} strokeWidth={2.2} />
+                  </button>
+                  <button type="button" onClick={() => handleOpenLead('Food & Hospitality')} aria-label="Explore Food & Hospitality" className="industry-arrow-btn">
+                    <ArrowRight size={14} strokeWidth={2} />
+                  </button>
+                </div>
+              </article>
+
+              {/* Card 6: Travel & Tourism */}
+              <article className="industry-card rv">
+                <div>
+                  <div className="industry-img-wrap">
+                    <img src="/images/social-industries/travel-tourism.webp" alt="Travel & Tourism" loading="lazy" className="industry-img" />
+                    <div className="industry-fade-mask" />
+                  </div>
+                  <div className="industry-card-body">
+                    <div className="industry-icon-badge">
+                      <Plane size={20} strokeWidth={2} />
+                    </div>
+                    <h3 className="industry-card-title">Travel &amp; Tourism</h3>
+                    <p className="industry-card-desc">
+                      Inspire, engage and convert travellers with compelling social media content.
+                    </p>
+                  </div>
+                </div>
+                <div className="industry-card-footer">
+                  <button type="button" onClick={() => handleOpenLead('Travel & Tourism')} className="industry-action-link">
+                    <span>Explore Solutions</span>
+                    <ArrowRight size={13} strokeWidth={2.2} />
+                  </button>
+                  <button type="button" onClick={() => handleOpenLead('Travel & Tourism')} aria-label="Explore Travel" className="industry-arrow-btn">
+                    <ArrowRight size={14} strokeWidth={2} />
+                  </button>
+                </div>
+              </article>
+
+              {/* Card 7: Technology & SaaS */}
+              <article className="industry-card rv">
+                <div>
+                  <div className="industry-img-wrap">
+                    <img src="/images/social-industries/technology-saas.webp" alt="Technology & SaaS" loading="lazy" className="industry-img" />
+                    <div className="industry-fade-mask" />
+                  </div>
+                  <div className="industry-card-body">
+                    <div className="industry-icon-badge">
+                      <Layers size={20} strokeWidth={2} />
+                    </div>
+                    <h3 className="industry-card-title">Technology &amp; SaaS</h3>
+                    <p className="industry-card-desc">
+                      Generate awareness, attract qualified leads and position your brand as an industry leader.
+                    </p>
+                  </div>
+                </div>
+                <div className="industry-card-footer">
+                  <button type="button" onClick={() => handleOpenLead('Technology & SaaS')} className="industry-action-link">
+                    <span>Explore Solutions</span>
+                    <ArrowRight size={13} strokeWidth={2.2} />
+                  </button>
+                  <button type="button" onClick={() => handleOpenLead('Technology & SaaS')} aria-label="Explore Tech SaaS" className="industry-arrow-btn">
+                    <ArrowRight size={14} strokeWidth={2} />
+                  </button>
+                </div>
+              </article>
+
+              {/* Card 8: Fashion & Lifestyle */}
+              <article className="industry-card rv">
+                <div>
+                  <div className="industry-img-wrap">
+                    <img src="/images/social-industries/fashion-lifestyle.webp" alt="Fashion & Lifestyle" loading="lazy" className="industry-img" />
+                    <div className="industry-fade-mask" />
+                  </div>
+                  <div className="industry-card-body">
+                    <div className="industry-icon-badge">
+                      <Sparkles size={20} strokeWidth={2} />
+                    </div>
+                    <h3 className="industry-card-title">Fashion &amp; Lifestyle</h3>
+                    <p className="industry-card-desc">
+                      Build a strong brand presence and create a loyal community through engaging content.
+                    </p>
+                  </div>
+                </div>
+                <div className="industry-card-footer">
+                  <button type="button" onClick={() => handleOpenLead('Fashion & Lifestyle')} className="industry-action-link">
+                    <span>Explore Solutions</span>
+                    <ArrowRight size={13} strokeWidth={2.2} />
+                  </button>
+                  <button type="button" onClick={() => handleOpenLead('Fashion & Lifestyle')} aria-label="Explore Fashion" className="industry-arrow-btn">
+                    <ArrowRight size={14} strokeWidth={2} />
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            {/* BOTTOM BUTTON: "View All Industries →" */}
+            <div className="industries-bottom-cta">
+              <button
+                type="button"
+                className="industries-view-all-btn"
+                onClick={() => handleOpenLead('Industries We Work With')}
+              >
+                <span>View All Industries</span>
+                <ArrowRight size={16} strokeWidth={2.2} />
+              </button>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
-        <section className="sec alt" id="faq">
+        <section className="sec" id="faq">
           <div className="wrap">
-            <div className="head rv" style={{ justifyContent: 'center', textAlign: 'center' }}>
-              <div>
-                <span className="eyebrow">FAQ</span>
-                <h2 style={{ maxWidth: 'none' }}>Questions brands ask us.</h2>
-              </div>
+            <div className="head rv">
+              <h2>
+                Frequently Asked<br />
+                Questions.
+              </h2>
+              <p>
+                Everything you need to know about our social media marketing services, content production and strategy.<br />
+                Have more questions or need a tailored plan? Contact our team today.
+              </p>
             </div>
             <div className="faq">
               <details open>
@@ -1579,13 +1867,13 @@ export default function SocialMediaPage() {
           <div className="halo" aria-hidden="true" />
           <div className="halo b" aria-hidden="true" />
           <div className="wrap in">
-            <span className="eyebrow">Free content audit</span>
             <h2>
-              Make your feed<br />
-              <span className="outline">impossible to skip.</span>
+              Make Your Feed<br />
+              <span className="outline">Impossible to Skip.</span>
             </h2>
             <p>
-              We&apos;ll review your last 30 posts, show you what&apos;s working and what isn&apos;t, and share three content ideas you can use straight away. Free, with no obligation.
+              We&apos;ll review your last 30 posts, show you what&apos;s working and what isn&apos;t, and share three content ideas you can use straight away.<br />
+              Completely free, with zero obligation.
             </p>
             <button
               type="button"

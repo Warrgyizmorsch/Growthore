@@ -17,7 +17,7 @@ const logos = [
 export default function Marquee() {
   return (
     <section className="brand-marquee-sec" aria-label="Brands we have scaled">
-      <div className="eyebrow">Brands We Have Scaled</div>
+      <h1 className="brand-marquee-heading">Brands We Have Scaled</h1>
       <div className="brand-marquee-wrap">
         <div className="brand-marquee-track">
           <div className="brand-marquee-set">

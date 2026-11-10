@@ -402,7 +402,12 @@ border-top:1px solid var(--line)
 }
 }
 .page-about .sec {
-padding-block:clamp(70px,8vw,110px)
+padding-block:80px
+}
+@media (max-width: 640px) {
+.page-about .sec {
+padding-block:50px
+}
 }
 .page-about .sec.alt {
 background:var(--ink)
@@ -1087,25 +1092,29 @@ display:none
 }
 /* Continuous Brand Logo Marquee */
 .page-about .brand-marquee-sec {
-
-  padding-block: clamp(24px, 3.5vw, 44px);
+  padding-block: 80px;
   border-top: 1px solid rgba(150, 182, 255, 0.08);
   border-bottom: 1px solid rgba(150, 182, 255, 0.08);
   text-align: center;
   overflow: hidden;
   background: rgba(6, 17, 50, 0.4);
-
 }
-.page-about .brand-marquee-sec .eyebrow {
-
-  display: flex;
-  justify-content: center;
-  margin-bottom: 18px;
-  font-size: 11.5px;
-  letter-spacing: 0.18em;
-  color: var(--silver);
-  text-transform: uppercase;
-
+@media (max-width: 640px) {
+  .page-about .brand-marquee-sec {
+    padding-block: 50px;
+  }
+}
+.page-about .brand-marquee-heading,
+.page-about .brand-marquee-sec h1 {
+  font-family: var(--display, 'Sora', sans-serif);
+  font-size: clamp(32px, 4.2vw, 54px);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 auto clamp(28px, 4vw, 44px);
+  text-wrap: balance;
 }
 .page-about .brand-marquee-wrap {
 

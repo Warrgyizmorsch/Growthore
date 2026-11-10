@@ -324,7 +324,12 @@ color:#fff
 background:linear-gradient(90deg,#C9D8FF,#7CA6FF 50%,#3B7BFF);-webkit-background-clip:text;background-clip:text;color:transparent
 }
 .page-contact .sec {
-padding-block:clamp(70px,8vw,110px)
+padding-block:80px
+}
+@media (max-width: 640px) {
+.page-contact .sec {
+padding-block:50px
+}
 }
 .page-contact .sec.alt {
 background:var(--ink)

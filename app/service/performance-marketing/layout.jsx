@@ -1,14 +1,14 @@
 export const metadata = {
-  title: 'Performance Marketing Agency — Meta & Google Ads | GrowthOre',
+  title: 'Performance Marketing Agency UK | Growthore',
   description:
-    'Data-driven Meta Ads and Google Ads management for scaling brands. High-converting creative testing, CAPI tracking, and measurable revenue growth.',
+    "Unlock sustainable growth with Growthore's performance marketing services in the UK. Reach the right audience, generate quality leads and boost ROI. Talk to us.",
   alternates: {
     canonical: 'https://growthore.co.uk/service/performance-marketing',
   },
   openGraph: {
-    title: 'Performance Marketing Agency — Meta & Google Ads | GrowthOre',
+    title: 'Performance Marketing Agency UK | Growthore',
     description:
-      'Data-driven Meta Ads and Google Ads management for scaling brands. High-converting creative testing, CAPI tracking, and measurable revenue growth.',
+      "Unlock sustainable growth with Growthore's performance marketing services in the UK. Reach the right audience, generate quality leads and boost ROI. Talk to us.",
     url: 'https://growthore.co.uk/service/performance-marketing',
     type: 'website',
   },

@@ -1,14 +1,14 @@
 export const metadata = {
-  title: 'Social Media Marketing Agency — Reels & Paid Social | GrowthOre',
+  title: 'Best Social Media Marketing Agency UK – Get More Leads',
   description:
-    'Creative-first social media marketing that converts followers into customers. Viral Reels, UGC creative direction, and paid social scale.',
+    'Generate quality leads with tailored social media marketing in the UK. Boost engagement, attract customers and improve conversions. Request your free quote.',
   alternates: {
     canonical: 'https://growthore.co.uk/service/social-media-marketing',
   },
   openGraph: {
-    title: 'Social Media Marketing Agency — Reels & Paid Social | GrowthOre',
+    title: 'Best Social Media Marketing Agency UK – Get More Leads',
     description:
-      'Creative-first social media marketing that converts followers into customers. Viral Reels, UGC creative direction, and paid social scale.',
+      'Generate quality leads with tailored social media marketing in the UK. Boost engagement, attract customers and improve conversions. Request your free quote.',
     url: 'https://growthore.co.uk/service/social-media-marketing',
     type: 'website',
   },

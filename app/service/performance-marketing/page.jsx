@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { Check, Search, ArrowUpRight, ArrowRight } from 'lucide-react';
 import Marquee from '@/components/Marquee';
 import './performance.css';
 
@@ -60,6 +61,65 @@ const AD_DATA = {
 
 const ORDER = ['feed', 'reels', 'search', 'shop', 'lead'];
 
+const CAMPAIGNS_DATA = [
+  {
+    category: 'Ecommerce',
+    tagBg: '#1b2c1d',
+    image: '/images/campaigns/ecommerce-lumiere.png',
+    alt: 'Beauty Brand Scale-Up — LUMIÈRE Skincare',
+    title: 'Beauty Brand Scale-Up',
+    description: 'A full-funnel performance marketing strategy to scale sales across the UK eCommerce market.',
+    metrics: [
+      { val: '3.6x', label: 'ROAS' },
+      { val: '210%', label: 'Revenue Growth' },
+      { val: '42%', label: 'Lower CPA' },
+    ],
+  },
+  {
+    category: 'Education',
+    tagBg: '#2a1e16',
+    image: '/images/campaigns/education-study-abroad.jpg',
+    alt: 'Study Abroad Enquiries — UK Universities',
+    title: 'Study Abroad Enquiries',
+    description: 'Generated high-quality student enquiries for UK universities through multi-channel campaigns.',
+    metrics: [
+      { val: '4.2x', label: 'ROAS' },
+      { val: '320%', label: 'Qualified Leads' },
+      { val: '35%', label: 'Lower CPL' },
+    ],
+  },
+  {
+    category: 'SaaS',
+    tagBg: '#09152b',
+    image: '/images/campaigns/saas-user-acquisition.png',
+    alt: 'SaaS User Acquisition — B2B SaaS Dashboard',
+    title: 'SaaS User Acquisition',
+    description: 'A data-driven paid media strategy to acquire and activate high-value users for a B2B SaaS platform.',
+    badge: {
+      stat: '150%',
+      label: 'User Sign-ups',
+    },
+    metrics: [
+      { val: '150%', label: 'User Sign-ups' },
+      { val: '60%', label: 'Lower CAC' },
+      { val: '2.8x', label: 'ROI' },
+    ],
+  },
+  {
+    category: 'Healthcare',
+    tagBg: '#221a14',
+    image: '/images/campaigns/healthcare-wellcare.png',
+    alt: 'Local Clinic Growth — Wellcare Clinic Reception',
+    title: 'Local Clinic Growth',
+    description: 'Increased appointment bookings through targeted local campaigns across Google and Meta.',
+    metrics: [
+      { val: '250%', label: 'Appointments' },
+      { val: '45%', label: 'Lower CPA' },
+      { val: '5x', label: 'ROI' },
+    ],
+  },
+];
+
 function inr(n) {
   n = Math.max(0, n);
   if (n >= 1e7) return '₹' + (n / 1e7).toFixed(n >= 1e8 ? 1 : 2) + ' Cr';
@@ -117,6 +177,15 @@ export default function PerformanceMarketingPage() {
   const handleOpenLead = (service = 'Performance Marketing') => {
     if (typeof window !== 'undefined' && window.openLeadModal) {
       window.openLeadModal(service);
+    }
+  };
+
+  // Campaign slider ref & scroll helper
+  const campaignSliderRef = useRef(null);
+  const scrollCampaigns = (dir) => {
+    if (campaignSliderRef.current) {
+      const cardWidth = campaignSliderRef.current.firstElementChild?.offsetWidth || 300;
+      campaignSliderRef.current.scrollBy({ left: dir * (cardWidth + 20), behavior: 'smooth' });
     }
   };
 
@@ -358,53 +427,17 @@ export default function PerformanceMarketingPage() {
               <span style={{ color: '#fff' }}>Performance Marketing</span>
             </nav>
             <h1 className="bh1">
-              <span className="kicker">
-                <span className="live" />
-                Performance Marketing Agency · Meta &amp; Google Ads
-              </span>
-              <br />
               <span className="bl">
-                <span className="w" style={{ '--i': 0 }}>Ad spend</span>
-                <span className="pills" aria-hidden="true">
-                  <span className="pl">
-                    <svg viewBox="0 0 24 24">
-                      <rect className="gb" x="3" y="10" width="4.5" height="11" rx="1.5" fill="#2F6BFF" />
-                      <rect className="gb" x="9.75" y="6" width="4.5" height="15" rx="1.5" fill="#5E8DFF" />
-                      <rect className="gb" x="16.5" y="2" width="4.5" height="19" rx="1.5" fill="#2F6BFF" />
-                    </svg>
-                  </span>
-                  <span className="pl">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-                      <g className="globe">
-                        <circle cx="12" cy="12" r="9.5" />
-                        <path d="M2.5 12h19M12 2.5c3 3 3 16 0 19M12 2.5c-3 3-3 16 0 19" />
-                      </g>
-                    </svg>
-                  </span>
-                  <span className="pl">
-                    <i className="rip" />
-                    <svg viewBox="0 0 24 24">
-                      <path
-                        className="cur"
-                        d="M5 3l14 7-6 1.6L10.5 18z"
-                        fill="#9DBBFF"
-                        stroke="#fff"
-                        strokeWidth="1.2"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </span>
-                <span className="w" style={{ '--i': 1 }}>that</span>
+                <span className="w" style={{ '--i': 0 }}>Performance Marketing</span>
+                <span className="w" style={{ '--i': 1 }}>Agency UK.</span>
               </span>
               <span className="bl">
-                <span className="w" style={{ '--i': 2 }}>pays for</span>
-                <span className="w outline" style={{ '--i': 3 }}>itself</span>
+                <span className="w" style={{ '--i': 2 }}>Turning Ad Spend</span>
+                <span className="w outline" style={{ '--i': 3 }}>Into Growth.</span>
               </span>
             </h1>
             <p className="bh-sub">
-              We&apos;re a <strong>performance marketing agency</strong> for brands that measure success in revenue. Meta and
-              Google Ads planned, run and optimised around one number: profitable growth.
+              Make every pound of your advertising budget work harder. We combine Google Ads, Meta Ads, precise audience targeting and continuous optimisation to help businesses generate qualified leads, increase conversions and achieve measurable growth.
             </p>
             <div className="bh-ctas">
               <button
@@ -412,13 +445,13 @@ export default function PerformanceMarketingPage() {
                 className="btn btn-white"
                 onClick={() => handleOpenLead('Performance Marketing')}
               >
-                Get a free ad account audit{' '}
+                Get Your Free Ads Audit{' '}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </button>
-              <a href="#ads" className="btn btn-ghost">
-                See ads in action{' '}
+              <a href="#case" className="btn btn-ghost">
+                Explore Our Results{' '}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -430,7 +463,7 @@ export default function PerformanceMarketingPage() {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </i>
-              For brands investing ₹1L+/month in ads, in India and the UK
+              Helping UK businesses make smarter advertising decisions and get more value from their marketing budgets.
             </p>
 
             <div className="bento">
@@ -629,11 +662,14 @@ export default function PerformanceMarketingPage() {
         <section className="sec alt" id="live">
           <div className="wrap live-grid">
             <div className="rv">
-              <span className="eyebrow">Inside a campaign</span>
-              <h2>Watch spend turn into revenue.</h2>
+
+              <h2>
+                Every Pound. Every Click.<br />
+                Every Measurable Result.
+              </h2>
               <p className="muted" style={{ fontSize: 'var(--step-1)' }}>
-                This is what we watch every day: every rupee of spend, every order it brings back, and the ROAS in between.
-                When a channel slips, we see it the same day.
+                Know exactly where your advertising budget goes and what it delivers with ROAS tracking.<br />
+                We use real campaign data to identify opportunities and make every pound work harder.
               </p>
             </div>
             <div className="room" aria-label="Simulated campaign dashboard">
@@ -729,13 +765,14 @@ export default function PerformanceMarketingPage() {
           </svg>
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">Industries we grow</span>
-                <h2>We know what sells in your category.</h2>
-              </div>
-              <div className="r">
-                <p>Every niche buys differently. These are the playbooks we&apos;ve built running real budgets for real brands.</p>
-              </div>
+              <h2>
+                Different Industries.<br />
+                Different Growth Strategies.
+              </h2>
+              <p>
+                Every industry has unique customers, market challenges and distinct buying behaviours.<br />
+                We develop tailored performance marketing strategies that reach the right audience and boost returns.
+              </p>
             </div>
             <div className="niches" id="niches-row">
               {/* Niche 1 */}
@@ -903,13 +940,14 @@ export default function PerformanceMarketingPage() {
         <section className="sec" id="ads">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">Ads in action</span>
-                <h2>Built to stop the scroll. Tuned to sell.</h2>
-              </div>
-              <div className="r">
-                <p>Every format has one job. Pick one to watch how it moves a buyer from first look to order or lead.</p>
-              </div>
+              <h2>
+                Built to Stop the Scroll.<br />
+                Tuned to Convert &amp; Sell.
+              </h2>
+              <p>
+                Every format has one purpose: driving engaged buyers from first impression to verified enquiry.<br />
+                Select an ad format below to explore how our creatives convert attention into scalable revenue.
+              </p>
             </div>
             <div className="tabs" role="tablist" aria-label="Ad formats" id="adTabs">
               {ORDER.map((item) => (
@@ -1172,13 +1210,14 @@ export default function PerformanceMarketingPage() {
         <section className="sec alt" id="leaks">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">Where the money goes</span>
-                <h2>Most ad accounts leak money in three places.</h2>
-              </div>
-              <div className="r">
-                <p>Drag the handle to compare a typical account with the way we rebuild it.</p>
-              </div>
+              <h2>
+                Stop Wasting Budget.<br />
+                Start Improving Results.
+              </h2>
+              <p>
+                Poor targeting, inaccurate tracking and ineffective creatives silently drain your advertising budget.<br />
+                Slide below to discover how we pinpoint wasted spend and optimise campaigns for higher performance.
+              </p>
             </div>
             <div className="ltoggle" role="group" aria-label="Compare">
               <button
@@ -1283,13 +1322,14 @@ export default function PerformanceMarketingPage() {
         <section className="sec" id="calc">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">ROAS calculator</span>
-                <h2>What would a better ROAS be worth to you?</h2>
-              </div>
-              <div className="r">
-                <p>Move the sliders to your own numbers. Revenue is simply ad spend multiplied by ROAS.</p>
-              </div>
+              <h2>
+                Ad Performance Calculator.<br />
+                Explore Your Potential Returns.
+              </h2>
+              <p>
+                See how improving your return on ad spend increases revenue without raising your advertising budget.<br />
+                Adjust the interactive sliders below to explore your potential growth and projected campaign returns.
+              </p>
             </div>
             <div className="calc rv">
               <div className="ctrlg">
@@ -1388,10 +1428,14 @@ export default function PerformanceMarketingPage() {
         <section className="sec alt" id="framework">
           <div className="wrap fw">
             <div className="fw-stick">
-              <span className="eyebrow">The growth engine</span>
-              <h2>Four steps. Repeated every month.</h2>
+                    
+              <h2>
+                A Smarter Process.<br />
+                Better Campaigns &amp; Stronger Growth.
+              </h2>
               <p className="muted">
-                The same system that took Oltao from ₹1L to ₹90L+, applied to your account, your margins and your buyers.
+                From audience research to campaign optimisation, our four-step approach reduces ad waste.<br />
+                We help UK businesses generate qualified leads and achieve sustainable, measurable returns.
               </p>
               <div className="fw-num" id="fwNum" aria-hidden="true">
                 {fwStep}
@@ -1495,10 +1539,14 @@ export default function PerformanceMarketingPage() {
         <section className="sec" id="channels" style={{ overflow: 'hidden' }}>
           <div className="wrap orb-grid">
             <div className="rv">
-              <span className="eyebrow">One team, every channel</span>
-              <h2>Every channel your buyers use. Run by one team.</h2>
+             
+              <h2>
+                The Right Channels &amp; Audience.<br />
+                One Unified Growth Strategy.
+              </h2>
               <p className="muted" style={{ fontSize: 'var(--step-1)' }}>
-                We pick channels by where your buyers are and what your margins allow, then run them together so every rupee reports into the same number.
+                Your customers use multiple online platforms before making an enquiry or final decision.<br />
+                We connect Google Ads and Meta Ads into one joined-up strategy that makes every pound count.
               </p>
               <div className="chlist">
                 <span>
@@ -1525,7 +1573,7 @@ export default function PerformanceMarketingPage() {
                 className="btn btn-white"
                 onClick={() => handleOpenLead('Performance Marketing')}
               >
-                Plan my channel mix{' '}
+                Plan My Advertising Strategy{' '}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -1603,27 +1651,593 @@ export default function PerformanceMarketingPage() {
           </div>
         </section>
 
+
+{/* PAID MEDIA SERVICES */}
+               <section className="sec alt paid-media-sec" id="paid-media">
+                 {/* Decorative sweeping waves and arcs */}
+                 <svg className="paid-media-arcs" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                   <path d="M 0 175 C 180 165, 310 85, 435 0 L 0 0 Z" fill="#02050c" fillOpacity="0.7" />
+                   <path d="M 1110 -10 Q 1240 165 1450 205" stroke="#2F6BFF" strokeOpacity="0.45" strokeWidth="1.4" fill="none" />
+                   <path d="M -20 790 Q 95 835 165 910" stroke="#6C9BFF" strokeOpacity="0.35" strokeWidth="1.3" fill="none" />
+                 </svg>
+       
+                 <div className="wrap paid-media-wrap">
+                   {/* Top Centered Header (2 lines H2, 2 lines description, no eyebrow) */}
+                   <div className="head rv">
+                     <h2>
+                       Turn the Right Platforms into<br />
+                       Real Business <span className="paid-media-title-accent">Opportunities.</span>
+                     </h2>
+                     <p>
+                       We plan, create and manage high-performing ad campaigns across multiple platforms<br className="d-none d-sm-inline" />
+                       to help you reach the right audience, generate qualified leads and grow your business.
+                     </p>
+                   </div>
+       
+                   {/* 4-COLUMN PLATFORM CARDS GRID */}
+                   <div className="paid-media-grid">
+       
+                     {/* CARD 1: GOOGLE ADS */}
+                     <article className="platform-card rv">
+                       <div>
+                         <div className="platform-card-top">
+                           <div className="pm-logo-box">
+                             <svg className="pm-logo-icon" viewBox="0 0 48 48" fill="none">
+                               <path d="M8.5 36.2L21.8 13.2C23.5 10.3 27.2 9.3 30.1 11L16.8 34C15.1 36.9 11.4 37.9 8.5 36.2Z" fill="#FBBC04" />
+                               <path d="M39.5 36.2L26.2 13.2C24.5 10.3 20.8 9.3 17.9 11L31.2 34C32.9 36.9 36.6 37.9 39.5 36.2Z" fill="#4285F4" />
+                               <circle cx="12.5" cy="34.2" r="5.8" fill="#34A853" />
+                             </svg>
+                           </div>
+                           <span className="platform-tag-pill">Search. Display. YouTube.</span>
+                         </div>
+       
+                         <h3 className="platform-card-title">Google Ads</h3>
+                         <p className="platform-card-desc">Capture high-intent customers with targeted search and display campaigns.</p>
+       
+                         <ul className="platform-bullets">
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Search &amp; Shopping Ads</span>
+                           </li>
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Display &amp; Remarketing</span>
+                           </li>
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>YouTube Video Ads</span>
+                           </li>
+                         </ul>
+                       </div>
+       
+                       <div>
+                         <div className="platform-mockup-area">
+                           {/* White Browser Search Card */}
+                           <div className="google-search-mockup">
+                             <div className="google-search-bar">
+                               <div className="google-logo-text">
+                                 <span style={{ color: '#4285F4' }}>G</span><span style={{ color: '#EA4335' }}>o</span><span style={{ color: '#FBBC05' }}>o</span><span style={{ color: '#4285F4' }}>g</span><span style={{ color: '#34A853' }}>l</span><span style={{ color: '#EA4335' }}>e</span>
+                               </div>
+                               <div className="google-search-input">
+                                 <Search size={9} strokeWidth={2.5} className="google-search-icon" />
+                                 <Search size={8} strokeWidth={2.5} className="google-search-icon" />
+                               </div>
+                             </div>
+                             <div className="google-ad-lines">
+                               <div className="google-ad-line-first">
+                                 <span className="google-ad-badge">Ad</span>
+                                 <span className="google-ad-headline" />
+                               </div>
+                               <div className="google-subline l1" />
+                               <div className="google-subline l2" />
+                               <div className="google-subline l3" />
+                             </div>
+                           </div>
+       
+                           {/* Overlapping Floating KPI Card ("Leads +120%") */}
+                           <div className="platform-kpi-card">
+                             <div className="platform-kpi-label">Leads</div>
+                             <div className="platform-kpi-stat-row">
+                               <span className="platform-kpi-val">+120%</span>
+                               <span className="platform-kpi-arrow">
+                                 <ArrowUpRight size={13} strokeWidth={2.7} />
+                               </span>
+                             </div>
+                             <div className="platform-kpi-bars">
+                               <span style={{ height: '8px' }} />
+                               <span style={{ height: '13px' }} />
+                               <span style={{ height: '18px' }} />
+                             </div>
+                           </div>
+                         </div>
+       
+                         <button
+                           type="button"
+                           className="platform-cta-btn"
+                           onClick={() => handleOpenLead('Google Ads')}
+                         >
+                           <span>Generate Leads</span>
+                           <ArrowRight size={14} strokeWidth={2.2} className="platform-btn-arrow" />
+                         </button>
+                       </div>
+                     </article>
+       
+                     {/* CARD 2: META ADS */}
+                     <article className="platform-card rv">
+                       <div>
+                         <div className="platform-card-top">
+                           <div className="pm-logo-box">
+                             <svg className="pm-logo-icon" viewBox="0 0 48 48" fill="none">
+                               <path
+                                 d="M14.2 15C9.5 15 6 19.2 6 24.5C6 29.5 9.2 33 13.5 33C16.8 33 19.5 30.6 22.8 25.5L25.2 21.8C27.8 17.8 30.2 15 34.2 15C38.8 15 42 18.8 42 24.2C42 29.5 38.5 33 34.2 33C30.8 33 28.4 30.8 26 27"
+                                 stroke="#0081FB"
+                                 strokeWidth="4.4"
+                                 strokeLinecap="round"
+                               />
+                               <path
+                                 d="M13.5 33C16.8 33 19.5 30.6 22.8 25.5L25.2 21.8C22.6 17.5 19.2 15 14.2 15"
+                                 stroke="#0064E0"
+                                 strokeWidth="4.4"
+                                 strokeLinecap="round"
+                               />
+                             </svg>
+                           </div>
+                           <span className="platform-tag-pill">Facebook. Instagram. Reels.</span>
+                         </div>
+       
+                         <h3 className="platform-card-title">Meta Ads</h3>
+                         <p className="platform-card-desc">Build brand awareness and generate high-quality leads with engaging social media campaigns.</p>
+       
+                         <ul className="platform-bullets">
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Facebook &amp; Instagram Ads</span>
+                           </li>
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Reels &amp; Stories Campaigns</span>
+                           </li>
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Audience Retargeting</span>
+                           </li>
+                         </ul>
+                       </div>
+       
+                       <div>
+                         <div className="platform-mockup-area">
+                           <div className="meta-ad-mockup">
+                             <div className="meta-ad-left-strip">
+                               <div className="meta-app-badge ig" aria-label="Instagram">
+                                 <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="12" height="12">
+                                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                   <circle cx="12" cy="12" r="4.2" />
+                                   <circle cx="17.5" cy="6.5" r="1" fill="#ffffff" stroke="none" />
+                                 </svg>
+                               </div>
+                               <div className="meta-app-badge fb" aria-label="Facebook">
+                                 <svg viewBox="0 0 24 24" fill="#ffffff" width="11" height="11">
+                                   <path d="M9.198 21.5h4v-8.01h2.604l.39-3.024h-2.994V8.535c0-.875.243-1.472 1.498-1.472H16.3V4.356c-.28-.037-1.242-.12-2.362-.12-2.337 0-3.937 1.427-3.937 4.047v2.261H7.404v3.024h2.596v8.01z" />
+                                 </svg>
+                               </div>
+                               <span className="meta-ad-badge-tag">Ad</span>
+                             </div>
+                             <div className="meta-ad-right-content">
+                               <div className="meta-ad-top-line">
+                                 <span className="meta-bar-sm" />
+                                 <span className="meta-ad-label">Ad</span>
+                               </div>
+                               <div className="meta-ad-img-box">
+                                 <img
+                                   src="/images/paid-media/meta-sneaker.png"
+                                   alt="Sneaker Ad Preview"
+                                   loading="lazy"
+                                   className="pm-mockup-img"
+                                 />
+                               </div>
+                               <span className="meta-bar-sub" />
+                             </div>
+                           </div>
+       
+                           {/* Floating KPI Card ("Qualified Leads +85%") */}
+                           <div className="platform-kpi-card">
+                             <div className="platform-kpi-label">Qualified Leads</div>
+                             <div className="platform-kpi-stat-row">
+                               <span className="platform-kpi-val">+85%</span>
+                               <span className="platform-kpi-arrow">
+                                 <ArrowUpRight size={13} strokeWidth={2.7} />
+                               </span>
+                             </div>
+                             <div className="platform-kpi-bars">
+                               <span style={{ height: '7px' }} />
+                               <span style={{ height: '12px' }} />
+                               <span style={{ height: '18px' }} />
+                             </div>
+                           </div>
+                         </div>
+       
+                         <button
+                           type="button"
+                           className="platform-cta-btn"
+                           onClick={() => handleOpenLead('Meta Ads')}
+                         >
+                           <span>Generate Leads</span>
+                           <ArrowRight size={14} strokeWidth={2.2} className="platform-btn-arrow" />
+                         </button>
+                       </div>
+                     </article>
+       
+                     {/* CARD 3: LINKEDIN ADS */}
+                     <article className="platform-card rv">
+                       <div>
+                         <div className="platform-card-top">
+                           <div className="pm-linkedin-badge" aria-label="LinkedIn">
+                             <svg viewBox="0 0 24 24" fill="#ffffff" width="22" height="22">
+                               <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z" />
+                             </svg>
+                           </div>
+                           <span className="platform-tag-pill">B2B Lead Generation</span>
+                         </div>
+       
+                         <h3 className="platform-card-title">LinkedIn Ads</h3>
+                         <p className="platform-card-desc">Reach business decision-makers with targeted B2B advertising campaigns.</p>
+       
+                         <ul className="platform-bullets">
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Sponsored Content</span>
+                           </li>
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Message Ads</span>
+                           </li>
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Lead Generation Forms</span>
+                           </li>
+                         </ul>
+                       </div>
+       
+                       <div>
+                         <div className="platform-mockup-area">
+                           <div className="linkedin-post-mockup">
+                             <div className="linkedin-mockup-head">
+                               <div className="linkedin-mockup-profile">
+                                 <span className="linkedin-tiny-in" aria-label="LinkedIn">
+                                   <svg viewBox="0 0 24 24" fill="#ffffff" width="9" height="9">
+                                     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z" />
+                                   </svg>
+                                 </span>
+                                 <div className="linkedin-mockup-lines">
+                                   <span className="linkedin-bar-1" />
+                                   <span className="linkedin-bar-2" />
+                                 </div>
+                               </div>
+                               <span className="linkedin-ad-tag">Ad</span>
+                             </div>
+                             <div className="linkedin-img-wrap">
+                               <span className="linkedin-corner-tag">Ad</span>
+                               <img
+                                 src="/images/paid-media/linkedin-corporate.jpg"
+                                 alt="Corporate Office Towers Ad Preview"
+                                 loading="lazy"
+                                 className="pm-mockup-img"
+                               />
+                             </div>
+                           </div>
+       
+                           {/* Floating KPI Card ("B2B Leads +200%") */}
+                           <div className="platform-kpi-card">
+                             <div className="platform-kpi-label">B2B Leads</div>
+                             <div className="platform-kpi-stat-row">
+                               <span className="platform-kpi-val">+200%</span>
+                               <span className="platform-kpi-arrow">
+                                 <ArrowUpRight size={13} strokeWidth={2.7} />
+                               </span>
+                             </div>
+                             <div className="platform-kpi-bars">
+                               <span style={{ height: '7px' }} />
+                               <span style={{ height: '12px' }} />
+                               <span style={{ height: '18px' }} />
+                             </div>
+                           </div>
+                         </div>
+       
+                         <button
+                           type="button"
+                           className="platform-cta-btn"
+                           onClick={() => handleOpenLead('LinkedIn Ads')}
+                         >
+                           <span>Generate Leads</span>
+                           <ArrowRight size={14} strokeWidth={2.2} className="platform-btn-arrow" />
+                         </button>
+                       </div>
+                     </article>
+       
+                     {/* CARD 4: OTHER PLATFORMS */}
+                     <article className="platform-card rv">
+                       <div>
+                         <div className="platform-card-top">
+                           <div className="pm-multi-icons">
+                             <div className="pm-app-icon tiktok" title="TikTok" aria-label="TikTok">
+                               <svg viewBox="0 0 24 24" fill="#ffffff" width="13" height="13">
+                                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.16 8.16 0 0 0 3.77.92V6.69z" />
+                               </svg>
+                             </div>
+                             <div className="pm-app-icon pinterest" title="Pinterest" aria-label="Pinterest">
+                               <svg viewBox="0 0 24 24" fill="#ffffff" width="13" height="13">
+                                 <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                               </svg>
+                             </div>
+                             <div className="pm-app-icon snapchat" title="Snapchat" aria-label="Snapchat">
+                               <svg viewBox="0 0 24 24" fill="#000000" width="13" height="13">
+                                 <path d="M12.012 2c-3.541 0-5.992 2.656-5.992 5.568 0 .86.233 1.83.473 2.518.156.447.168.618-.088.948-.228.293-.668.651-1.196.791-.497.132-.828.461-.836.877-.008.43.332.748.868.805.51.055.932-.086 1.258.106.28.165.253.513.203.951-.106.924-.712 1.545-1.523 1.564-.326.008-.604.148-.686.377-.101.282.029.566.365.789.702.464 1.727.669 2.593.744.136.012.222.067.247.151.107.362-.647 1.777-2.658 2.146-.372.068-.544.303-.497.527.054.262.385.452.887.452.809 0 1.696-.282 2.627-.833.272-.161.49-.126.685.067.555.55 1.536 1.054 3.264 1.054 1.737 0 2.723-.51 3.282-1.066.195-.194.414-.226.685-.065.93.551 1.818.833 2.627.833.502 0 .833-.19.887-.452.047-.224-.125-.459-.497-.527-2.011-.369-2.765-1.784-2.658-2.146.025-.084.111-.139.247-.151.866-.075 1.891-.28 2.593-.744.336-.223.466-.507.365-.789-.082-.229-.36-.369-.686-.377-.811-.019-1.417-.64-1.523-1.564-.05-.438-.077-.786.203-.951.326-.192.748-.051 1.258-.106.536-.057.876-.375.868-.805-.008-.416-.339-.745-.836-.877-.528-.14-.968-.498-1.196-.791-.256-.33-.244-.501-.088-.948.24-.688.473-1.658.473-2.518C18.004 4.656 15.553 2 12.012 2z" />
+                               </svg>
+                             </div>
+                             <div className="pm-app-icon reddit" title="Reddit" aria-label="Reddit">
+                               <svg viewBox="0 0 24 24" fill="#ffffff" width="13" height="13">
+                                 <path d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-1.309 3.055a.6.6 0 0 0 .783.783l3.055-1.309C8.213 23.473 10.046 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm6.545 13.5a2.045 2.045 0 0 1-2.045 2.045c-.247 0-.48-.046-.697-.127-1.042.723-2.457 1.182-4.024 1.223l.685-3.226 2.235.476a1.5 1.5 0 1 1 .273 1.252c.007-.066.012-.132.012-.2 0-.828-.672-1.5-1.5-1.5a1.493 1.493 0 0 0-1.464 1.19l-2.493-.531a.3.3 0 0 0-.356.233l-.841 3.963c-1.53-.05-2.91-.502-3.931-1.214a2.039 2.039 0 0 1-.689.123 2.045 2.045 0 1 1 1.428-3.513c.026-.372.105-.733.232-1.077.568-1.542 1.874-2.736 3.585-3.236C8.895 9.066 9.44 9 10 9c.56 0 1.105.066 1.625.19 1.711.5 3.017 1.694 3.585 3.236.127.344.206.705.232 1.077.808.318 1.403 1.037 1.403 1.997zm-8.045-.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm5 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-4.444 3.333a2.915 2.915 0 0 0 3.888 0 .3.3 0 0 0-.424-.424 2.315 2.315 0 0 1-3.04 0 .3.3 0 0 0-.424.424z" />
+                               </svg>
+                             </div>
+                           </div>
+                           <span className="platform-tag-pill">Multi-Channel</span>
+                         </div>
+       
+                         <h3 className="platform-card-title">Other Platforms</h3>
+                         <p className="platform-card-desc">We also run campaigns on TikTok, Pinterest, Snapchat, Reddit and more, tailored to your audience.</p>
+       
+                         <ul className="platform-bullets">
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Platform-specific strategy</span>
+                           </li>
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Creative ad production</span>
+                           </li>
+                           <li className="platform-bullet-item">
+                             <span className="platform-check-icon">
+                               <Check size={11} strokeWidth={3.5} />
+                             </span>
+                             <span>Ongoing optimisation</span>
+                           </li>
+                         </ul>
+                       </div>
+       
+                       <div>
+                         <div className="platform-mockup-area">
+                           <div className="multi-ad-mockup">
+                             {/* Left Fanned Pinterest Card */}
+                             <div className="multi-fanned-card">
+                               <span className="multi-pin-icon" aria-label="Pinterest">
+                                 <svg viewBox="0 0 24 24" fill="#ffffff" width="10" height="10">
+                                   <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                                 </svg>
+                               </span>
+                             </div>
+                             {/* Main TikTok Ad Card */}
+                             <div className="multi-main-card">
+                               <div className="multi-main-top">
+                                 <span className="multi-tiktok-icon" aria-label="TikTok">
+                                   <svg viewBox="0 0 24 24" fill="#ffffff" width="10" height="10">
+                                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.16 8.16 0 0 0 3.77.92V6.69z" />
+                                   </svg>
+                                 </span>
+                                 <span className="multi-ad-tag">Ad</span>
+                               </div>
+                               <div className="multi-img-box">
+                                 <img
+                                   src="/images/paid-media/tiktok-skincare.jpg"
+                                   alt="TikTok Skincare Ad Preview"
+                                   loading="lazy"
+                                   className="pm-mockup-img"
+                                 />
+                               </div>
+                               <div className="multi-lines">
+                                 <span className="multi-bar-1" />
+                                 <span className="multi-bar-2" />
+                               </div>
+                             </div>
+                           </div>
+       
+                           {/* Floating KPI Card ("Engagement +75%") */}
+                           <div className="platform-kpi-card">
+                             <div className="platform-kpi-label">Engagement</div>
+                             <div className="platform-kpi-stat-row">
+                               <span className="platform-kpi-val">+75%</span>
+                               <span className="platform-kpi-arrow">
+                                 <ArrowUpRight size={13} strokeWidth={2.7} />
+                               </span>
+                             </div>
+                             <div className="platform-kpi-bars">
+                               <span style={{ height: '7px' }} />
+                               <span style={{ height: '12px' }} />
+                               <span style={{ height: '18px' }} />
+                             </div>
+                           </div>
+                         </div>
+       
+                         <button
+                           type="button"
+                           className="platform-cta-btn"
+                           onClick={() => handleOpenLead('Other Platforms')}
+                         >
+                           <span>Generate Leads</span>
+                           <ArrowRight size={14} strokeWidth={2.2} className="platform-btn-arrow" />
+                         </button>
+                       </div>
+                     </article>
+       
+                   </div>
+                 </div>
+               </section>
+
+        {/* OUR BEST CAMPAIGNS */}
+        <section className="sec campaigns-sec" id="campaigns">
+          {/* Bottom Decorative Glowing Curved Arcs */}
+          <svg className="campaigns-bottom-arcs" viewBox="0 0 1440 210" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="campaignArcLeft" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#2F6BFF" stopOpacity="0.08" />
+                <stop offset="65%" stopColor="#2F6BFF" stopOpacity="0.65" />
+                <stop offset="100%" stopColor="#6C9BFF" stopOpacity="0.95" />
+              </linearGradient>
+              <linearGradient id="campaignArcRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#1E3A8A" stopOpacity="0.2" />
+                <stop offset="60%" stopColor="#2F6BFF" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#6C9BFF" stopOpacity="0.85" />
+              </linearGradient>
+            </defs>
+            <path d="M -60 215 Q 240 -25 535 215" stroke="url(#campaignArcLeft)" strokeWidth="1.6" fill="none" />
+            <path d="M 905 215 Q 1190 -30 1490 215" stroke="url(#campaignArcRight)" strokeWidth="1.5" fill="none" />
+          </svg>
+
+          <div className="wrap campaigns-wrap">
+            {/* TOP HEADER + NAVIGATION ARROWS */}
+            <div className="campaigns-head-row">
+              <div className="head rv campaigns-head-center">
+               
+                <h2>
+                  Real Campaigns.<br />
+                  Measurable <span className="campaigns-title-accent">Results.</span>
+                </h2>
+                <p>
+                  From scaling eCommerce brands to generating high-intent leads, our performance<br className="d-none d-sm-inline" />
+                  marketing campaigns are built to deliver real business growth.
+                </p>
+              </div>
+
+              {/* Prev / Next Circular Navigation Arrows */}
+              <div className="campaigns-nav-btns" aria-label="Campaign navigation">
+                <button
+                  type="button"
+                  className="campaigns-nav-btn prev"
+                  onClick={() => scrollCampaigns(-1)}
+                  aria-label="Previous campaigns"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 12H5m0 0l5-5m-5 5l5 5" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  className="campaigns-nav-btn next"
+                  onClick={() => scrollCampaigns(1)}
+                  aria-label="Next campaigns"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14m0 0l-5-5m5 5l-5 5" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* 4-COLUMN CAMPAIGN CARDS GRID */}
+            <div className="campaigns-grid" ref={campaignSliderRef}>
+              {CAMPAIGNS_DATA.map((c, i) => (
+                <article key={i} className="campaign-card rv">
+                  {/* Top Image Area */}
+                  <div className="campaign-card-media" style={{ background: c.tagBg }}>
+                    <span className="campaign-category-pill">{c.category}</span>
+                    {c.badge && (
+                      <div className="campaign-saas-callout">
+                        <div className="campaign-saas-arrow">↑</div>
+                        <div className="campaign-saas-texts">
+                          <span className="campaign-saas-stat">{c.badge.stat}</span>
+                          <span className="campaign-saas-label">{c.badge.label}</span>
+                        </div>
+                      </div>
+                    )}
+                    <img
+                      src={c.image}
+                      alt={c.alt}
+                      loading="lazy"
+                      className="campaign-card-img"
+                    />
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="campaign-card-body">
+                    <div>
+                      <h3 className="campaign-card-title">{c.title}</h3>
+                      <p className="campaign-card-desc">{c.description}</p>
+                    </div>
+
+                    <div>
+                      {/* 3 Metrics Row */}
+                      <div className="campaign-metrics-row">
+                        {c.metrics.map((m, mi) => (
+                          <div key={mi} className={`campaign-metric-col ${mi === 0 ? 'col-first' : mi === 1 ? 'col-mid' : 'col-last'}`}>
+                            <div className="campaign-metric-val">{m.val}</div>
+                            <div className="campaign-metric-label">{m.label}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* View Case Study Link */}
+                      <button
+                        type="button"
+                        onClick={() => handleOpenLead(`Case Study: ${c.title}`)}
+                        className="campaign-card-action"
+                      >
+                        <span>View case study</span>
+                        <svg className="campaign-action-arrow" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m0 0l-4-4m4 4l-4 4" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            {/* BOTTOM CTA PILL: "View all case studies →" */}
+            <div className="campaigns-bottom-cta">
+              <a href="#case" className="campaigns-view-all-pill">
+                <span>View all case studies</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14m0 0l-4-4m4 4l-4 4" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+        
+
         {/* OLTAO STORY */}
         <section className="sec alt" id="case">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">Case study · Oltao</span>
-                <h2>Six months, one growth engine.</h2>
-              </div>
-              <div className="r">
-                <p>A premium fan and air-purifier brand with a strong product and flat online sales. Here&apos;s what we changed.</p>
-                <button
-                  type="button"
-                  className="btn-line"
-                  onClick={() => handleOpenLead('Performance Marketing')}
-                >
-                  Get the same audit{' '}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                  </svg>
-                </button>
-              </div>
+              <h2>
+                From Strategy to Sales.<br />
+                A Six-Month Growth Story.
+              </h2>
+              <p>
+                Discover how we helped Oltao, a premium home tech brand, transform its advertising performance.<br />
+                Through smarter targeting and continuous campaign optimisation, we scaled conversions while lowering CPA.
+              </p>
             </div>
             <div className="story">
               <div className="rail" aria-hidden="true" />
@@ -1676,10 +2290,14 @@ export default function PerformanceMarketingPage() {
         <section className="sec" id="trust">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">Why brands trust us</span>
-                <h2>Your budget, handled like our own.</h2>
-              </div>
+              <h2>
+                Your Advertising Budget,<br />
+                Handled Like Our Own.
+              </h2>
+              <p>
+                We treat every client&apos;s advertising spend with absolute transparency, strict accountability and zero waste.<br />
+                Weekly performance reviews and real-time dashboard reporting ensure you always stay in complete control.
+              </p>
             </div>
             <div className="trust">
               <div className="tr4 rv">
@@ -1739,13 +2357,14 @@ export default function PerformanceMarketingPage() {
         <section className="sec alt" id="fit">
           <div className="wrap">
             <div className="head rv">
-              <div>
-                <span className="eyebrow">Is this a fit?</span>
-                <h2>Are we a fit? Find out in ten seconds.</h2>
-              </div>
-              <div className="r">
-                <p>We do our best work with established brands ready to scale. Being upfront saves us both a call.</p>
-              </div>
+              <h2>
+                Are We the Right Growth Partner?<br />
+                Find Out in Ten Seconds.
+              </h2>
+              <p>
+                We work best with ambitious UK businesses ready to scale with predictable unit economics and quality leads.<br />
+                Answer three quick questions below to discover how our tailored marketing approach fits your goals.
+              </p>
             </div>
             <div className="quiz rv">
               <form className="qbox" id="quiz" onSubmit={(e) => e.preventDefault()}>
@@ -1938,16 +2557,20 @@ export default function PerformanceMarketingPage() {
         {/* FAQ */}
         <section className="sec" id="faq">
           <div className="wrap">
-            <div className="head rv" style={{ justifyContent: 'center', textAlign: 'center' }}>
-              <div>
-                <span className="eyebrow">FAQ</span>
-                <h2 style={{ maxWidth: 'none' }}>Questions founders ask us.</h2>
-              </div>
+            <div className="head rv">
+              <h2>
+                Frequently Asked<br />
+                Questions.
+              </h2>
+              <p>
+                Everything you need to know about our performance marketing services, reporting and campaign management.<br />
+                Have more questions or need a tailored strategy? Contact our UK performance marketing team today.
+              </p>
             </div>
             <div className="faq">
               <details open>
                 <summary>
-                  What ad budget do I need to work with you?
+                  What is performance marketing, and how does it work?
                   <i>
                     <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round">
                       <path d="M12 5v14M5 12h14" />
@@ -1955,12 +2578,12 @@ export default function PerformanceMarketingPage() {
                   </i>
                 </summary>
                 <p>
-                  We work best with brands spending ₹1L or more a month on ads, or ready to get there. Below that, tests take too long to give reliable answers, so we&apos;ll tell you honestly if it&apos;s too early.
+                  Performance marketing is a results-focused approach to digital advertising where campaigns are measured against specific goals, such as leads, sales or conversions. It uses platforms like Google Ads and Meta Ads to reach potential customers, track performance and continuously optimise advertising spend for better returns.
                 </p>
               </details>
               <details>
                 <summary>
-                  How soon will we see results?
+                  Why should I hire a performance marketing agency in the UK?
                   <i>
                     <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round">
                       <path d="M12 5v14M5 12h14" />
@@ -1968,12 +2591,12 @@ export default function PerformanceMarketingPage() {
                   </i>
                 </summary>
                 <p>
-                  Most accounts show a clear signal within 30 to 45 days, once tracking is fixed and the first creative tests have run. Scaling usually starts in month two or three.
+                  Working with a performance marketing agency in the UK gives your business access to specialist advertising expertise, strategic campaign management and performance tracking. Growthore helps businesses improve Google and Meta Ads campaigns, reduce wasted spend and focus their marketing budget on measurable business objectives.
                 </p>
               </details>
               <details>
                 <summary>
-                  Do you work with brands in the UK?
+                  How much does performance marketing cost in the UK?
                   <i>
                     <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round">
                       <path d="M12 5v14M5 12h14" />
@@ -1981,12 +2604,12 @@ export default function PerformanceMarketingPage() {
                   </i>
                 </summary>
                 <p>
-                  Yes. You can contract with WarrgyizMorsch UK Ltd, and your campaigns are run by our team in Udaipur, India.
+                  Performance marketing costs vary depending on your industry, competition, advertising budget and campaign objectives. Businesses typically pay for advertising spend alongside agency management fees. At Growthore, we focus on recommending an advertising approach that matches your business goals and available budget.
                 </p>
               </details>
               <details>
                 <summary>
-                  Who owns the ad accounts and the data?
+                  Which is better for my business: Google Ads or Meta Ads?
                   <i>
                     <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round">
                       <path d="M12 5v14M5 12h14" />
@@ -1994,12 +2617,12 @@ export default function PerformanceMarketingPage() {
                   </i>
                 </summary>
                 <p>
-                  <em>[Add your policy here. Most brands expect to own their ad accounts, pixels and data, with the agency given partner access.]</em>
+                  Google Ads helps you reach people actively searching for products or services, while Meta Ads can build awareness and generate interest through Facebook and Instagram. The right platform depends on your audience and business goals. Many businesses benefit from combining both within one advertising strategy.
                 </p>
               </details>
               <details>
                 <summary>
-                  How do you report on performance?
+                  What does a performance marketing consultant do?
                   <i>
                     <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round">
                       <path d="M12 5v14M5 12h14" />
@@ -2007,12 +2630,12 @@ export default function PerformanceMarketingPage() {
                   </i>
                 </summary>
                 <p>
-                  A weekly optimisation call and a monthly revenue report covering spend, ROAS or CPL, revenue, and what we&apos;re testing next.
+                  A performance marketing consultant reviews your advertising strategy, identifies opportunities and recommends ways to improve campaign results. This may include audience targeting, budget allocation, conversion tracking and creative testing. Growthore combines strategic guidance with hands-on campaign management to support your business goals.
                 </p>
               </details>
               <details>
                 <summary>
-                  Is there a minimum contract length?
+                  How does Growthore measure performance marketing success?
                   <i>
                     <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round">
                       <path d="M12 5v14M5 12h14" />
@@ -2020,7 +2643,7 @@ export default function PerformanceMarketingPage() {
                   </i>
                 </summary>
                 <p>
-                  <em>[Add your contract terms here.]</em>
+                  We measure campaign performance using relevant metrics such as cost per lead, conversion rate, customer acquisition cost and return on ad spend (ROAS). Our focus is on understanding which campaigns contribute to your business goals and using those insights to improve advertising decisions.
                 </p>
               </details>
             </div>
@@ -2031,7 +2654,7 @@ export default function PerformanceMarketingPage() {
         <section className="fcta" id="audit">
           <div className="halo" aria-hidden="true" />
           <div className="wrap in">
-            <span className="eyebrow">Free ad account audit</span>
+           
             <h2>
               Find the money your<br />
               <span className="outline">ads are leaving.</span>

@@ -84,10 +84,11 @@ export default function HomeTeamSection() {
         {/* Header */}
         <div className="home-team-head">
           <div className="home-team-head-left">
-            <div className="home-team-eyebrow">
-              <span>—</span> OUR TEAM
-            </div>
-            <h2 className="home-team-title">The people doing the work.</h2>
+          
+            <h2 className="home-team-title">
+              The People Doing
+              the Work.
+            </h2>
             <p className="home-team-subtitle">
               Strategists, ad buyers, editors and writers in Udaipur and London. These are the people on your account.
             </p>

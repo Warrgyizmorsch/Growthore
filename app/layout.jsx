@@ -10,18 +10,18 @@ import WhatsAppButton from '../components/WhatsAppButton';
 export const metadata = {
   metadataBase: new URL('https://growthore.co.uk'),
   title: {
-    default: 'GrowthOre — Performance Marketing, Social Media & AI SEO',
+    default: 'Digital Marketing Consulting Services UK | Growthore',
     template: '%s | GrowthOre',
   },
   description:
-    'GrowthOre combines performance marketing, social media and AI-powered SEO to turn attention into leads and ad spend into measurable revenue.',
+    'Grow your UK business with expert digital marketing consulting services. Get tailored SEO, PPC and social media strategies that drive leads and growth.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'GrowthOre — Performance Marketing, Social Media & AI SEO',
+    title: 'Digital Marketing Consulting Services UK | Growthore',
     description:
-      'GrowthOre combines performance marketing, social media and AI-powered SEO to turn attention into leads and ad spend into measurable revenue.',
+      'Grow your UK business with expert digital marketing consulting services. Get tailored SEO, PPC and social media strategies that drive leads and growth.',
     url: 'https://growthore.co.uk',
     siteName: 'GrowthOre',
     locale: 'en_GB',
@@ -29,9 +29,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GrowthOre — Performance Marketing, Social Media & AI SEO',
+    title: 'Digital Marketing Consulting Services UK | Growthore',
     description:
-      'GrowthOre combines performance marketing, social media and AI-powered SEO to turn attention into leads and ad spend into measurable revenue.',
+      'Grow your UK business with expert digital marketing consulting services. Get tailored SEO, PPC and social media strategies that drive leads and growth.',
   },
   robots: {
     index: true,
@@ -80,6 +80,11 @@ export default function RootLayout({ children }) {
             }
           `}
         </Script>
+        <Script
+          id="instagram-embed-script"
+          src="//www.instagram.com/embed.js"
+          strategy="lazyOnload"
+        />
       </head>
       <body suppressHydrationWarning>
         <div className="grain" aria-hidden="true" />

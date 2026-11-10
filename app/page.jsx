@@ -123,12 +123,58 @@ export default function HomePage() {
     };
     faqItems.forEach((item) => item.addEventListener('toggle', handleToggle));
 
+    // 6. Hero continuous looping typewriter effect for "Built for Real Growth."
+    let typewriterTimeout;
+    const typewriterEl = document.getElementById('heroTypewriter');
+    if (typewriterEl) {
+      const fullText = 'Built for Real Growth.';
+      const isReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!isReduced) {
+        typewriterEl.textContent = '';
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const runTypewriter = () => {
+          if (!typewriterEl) return;
+
+          if (!isDeleting) {
+            charIndex++;
+            typewriterEl.textContent = fullText.slice(0, charIndex);
+
+            if (charIndex === fullText.length) {
+              isDeleting = true;
+              typewriterTimeout = setTimeout(runTypewriter, 2600);
+              return;
+            }
+
+            const char = fullText[charIndex - 1];
+            const delay = char === ' ' ? 140 : 55;
+            typewriterTimeout = setTimeout(runTypewriter, delay);
+          } else {
+            charIndex--;
+            typewriterEl.textContent = fullText.slice(0, charIndex);
+
+            if (charIndex === 0) {
+              isDeleting = false;
+              typewriterTimeout = setTimeout(runTypewriter, 500);
+              return;
+            }
+
+            typewriterTimeout = setTimeout(runTypewriter, 32);
+          }
+        };
+
+        typewriterTimeout = setTimeout(runTypewriter, 600);
+      }
+    }
+
     return () => {
       if (hero) hero.removeEventListener('pointermove', handleHeroMove);
       glowCards.forEach((el) => el.removeEventListener('pointermove', handleGlowMove));
       window.removeEventListener('scroll', handleScroll);
       if (observer && chatEl) observer.unobserve(chatEl);
       faqItems.forEach((item) => item.removeEventListener('toggle', handleToggle));
+      if (typewriterTimeout) clearTimeout(typewriterTimeout);
     };
   }, []);
 
@@ -178,31 +224,22 @@ export default function HomePage() {
             <div className="hero-c">
               <h1 className="h1">
                 <span className="line">
-                  <span className="w" style={{ '--i': 0 }}>We</span>{' '}
-                  <span className="w" style={{ '--i': 1 }}>don't</span>{' '}
-                  <span className="w" style={{ '--i': 2 }}>build</span>{' '}
-                  <span className="w" style={{ '--i': 3 }}>ads.</span>
+                  <span className="w" style={{ '--i': 0 }}>Digital</span>{' '}
+                  <span className="w" style={{ '--i': 1 }}>Marketing</span>
                 </span>
                 <span className="line">
-                  <span className="w" style={{ '--i': 4 }}>We</span>{' '}
-                  <span className="w" style={{ '--i': 5 }}>build</span>
+                  <span className="w" style={{ '--i': 2 }}>Consulting</span>{' '}
+                  <span className="w" style={{ '--i': 3 }}>Services.</span>
                 </span>
-                <span className="line growth-line">
-                  <span className="w outline incoming-word" style={{ '--i': 6 }}>
-                    {'growth'.split('').map((c, i) => (
-                      <span className="char" key={i} style={{ '--c': i }}>{c}</span>
-                    ))}
-                  </span>{' '}
-                  <span className="w outline incoming-word" style={{ '--i': 7 }}>
-                    {'engines.'.split('').map((c, i) => (
-                      <span className="char" key={i} style={{ '--c': i + 6 }}>{c}</span>
-                    ))}
+                <span className="line typewriter-line">
+                  <span id="heroTypewriter" className="typewriter-text">
+                    Built for Real Growth.
                   </span>
+                  <span className="typewriter-cursor" aria-hidden="true" />
                 </span>
               </h1>
               <p className="hero-sub">
-                We combine performance marketing, social media marketing and AI-powered SEO to turn attention into leads,
-                clicks into customers and marketing spend into measurable business growth
+                We combine expert digital marketing consultancy, performance marketing, social media marketing and AI-powered SEO to help UK businesses reach the right customers, generate quality leads and turn their marketing investment into measurable business growth.
               </p>
               <div className="ctas">
                 <button
@@ -270,15 +307,14 @@ export default function HomePage() {
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
-                <h2>Everything Your Brand Needs.</h2>
-                <p>Pick one or run all three. Every channel reports into the same dashboard and the same revenue target.</p>
+                <h2>
+                  Digital Marketing Services<br />
+                  Built Around Your Business.
+                </h2>
+                <p>
+                  From attracting new customers to increasing sales, our digital marketing services help UK businesses grow with confidence. Choose the services you need or combine all three for a joined-up strategy focused on leads, conversions and measurable results.
+                </p>
               </div>
-              <Link href="/service" className="btn-line">
-                All services{' '}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </Link>
             </div>
 
             <div className="svc-list">
@@ -330,6 +366,15 @@ export default function HomePage() {
                 </span>
               </Link>
             </div>
+
+            <div className="sec-bottom-cta">
+              <Link href="/service" className="btn-line">
+                All services{' '}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -338,11 +383,14 @@ export default function HomePage() {
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
-                <h2>Not Just an Agency. Your Growth Partner.</h2>
+                <h2>
+                  Why Choose Growthore<br />
+                  for Your Business Growth?
+                </h2>
                 <p>
-                  We don't believe in one-size-fits-all marketing. We combine smart strategies, creative thinking and data-driven
-                  decisions to help brands overcome challenges, unlock opportunities and achieve meaningful growth.
+                  We know that every UK business has its own goals and challenges. That is why we combine tailored digital marketing strategies, data-driven insights and creative thinking to help you reach the right customers, generate quality leads and achieve measurable business growth.
                 </p>
+                
               </div>
             </div>
             <div className="cards3">
@@ -355,10 +403,9 @@ export default function HomePage() {
                   </span>
                   <span className="num">01</span>
                 </div>
-                <h3>Growth Over Guesswork</h3>
+                <h3>Growth Backed by Data</h3>
                 <p>
-                  Every strategy starts with a purpose. We use insights, data and measurable goals to make marketing decisions
-                  that move your business forward.
+                  We use data, clear targets and performance insights to make informed marketing decisions that help UK businesses attract customers and grow sustainably.
                 </p>
               </article>
 
@@ -373,10 +420,9 @@ export default function HomePage() {
                   </span>
                   <span className="num">02</span>
                 </div>
-                <h3>The Right Audience. Real Impact.</h3>
+                <h3> The Right Audience. Real Results. </h3>
                 <p>
-                  Reaching more people means little without reaching the right ones. We focus on connecting your brand with
-                  audiences most likely to engage, trust and convert.
+                 We focus on reaching people who genuinely need your services, helping your UK business attract relevant visitors, generate better enquiries and turn interest into customers.
                 </p>
               </article>
 
@@ -404,18 +450,14 @@ export default function HomePage() {
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
-                <h2>Real Brands. Real Results.</h2>
+                <h2>
+                  Real Businesses.<br />
+                  Real Growth.
+                </h2>
                 <p>
-                  Every brand has a different challenge. Here's how we have helped businesses across industries turn marketing
-                  strategies into measurable growth.
+                  Every business faces different challenges. Explore how we have helped brands across industries generate quality leads, increase sales and achieve measurable marketing results.
                 </p>
               </div>
-              <a href="#work" className="btn-line">
-                View all work{' '}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
             </div>
 
             <div className="work">
@@ -571,6 +613,15 @@ export default function HomePage() {
                 </span>
               </div>
             </div>
+
+            <div className="sec-bottom-cta">
+              <a href="#work" className="btn-line">
+                View all work{' '}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
           </div>
         </section>
 
@@ -580,12 +631,12 @@ export default function HomePage() {
           <div className="wrap">
             <h2>
               <span className="dim" id="dim">
-                We don't chase likes.
+                We Don't Just Drive Traffic.
               </span>
               <br />
-              <span className="lit">We chase revenue.</span>
+              <span className="lit">We Drive Growth.</span>
             </h2>
-            <p>Every idea ships with a number attached: ROAS, CPL or revenue. That is the whole job.</p>
+            <p>Your business deserves more than clicks. We create smarter digital strategies that attract the right audience, generate quality leads and turn opportunities into measurable growth.  </p>
           </div>
         </section>
 
@@ -594,10 +645,13 @@ export default function HomePage() {
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
-                <h2>From Understanding Your Brand To Making It Grow.</h2>
+                <h2>
+                  From Understanding Your Business
+                  to Driving Real Growth.
+                </h2>
                 <p>
-                  Every brand has a different story, audience and ambition. We bring together strategy, creativity and technology
-                  to build a digital presence that gets noticed, earns trust and drives meaningful results.
+                 Every UK business has different goals, customers and challenges. We follow a clear, structured approach that combines research, digital marketing strategy and ongoing optimisation to help you reach the right audience and achieve measurable results. 
+
                 </p>
               </div>
             </div>
@@ -606,22 +660,22 @@ export default function HomePage() {
               <div className="fill" aria-hidden="true" />
               <div className="step">
                 <small>Week 1</small>
-                <h3>Understand Your Brand</h3>
-                <p>We explore your business, audience, competitors and goals to uncover what makes your brand unique and where opportunities exist.</p>
+                <h3>Understand Your Business</h3>
+                <p>We take time to understand your business, target customers, competitors and marketing goals. This helps us identify opportunities and develop a clear direction for your growth.</p>
               </div>
               <div className="step">
                 <small>Weeks 2–3</small>
                 <h3>Build the Right Strategy</h3>
-                <p>From search visibility to social engagement and paid campaigns, we create a tailored marketing strategy built around your business objectives.</p>
+                <p>We create a tailored digital marketing plan using SEO, paid advertising and social media strategies that align with your business objectives, audience and available budget.</p>
               </div>
               <div className="step">
                 <small>Weeks 4–8</small>
-                <h3>Bring Ideas to Life</h3>
-                <p>We turn strategy into action through compelling content, creative campaigns and search experiences that connect your brand with the right people.</p>
+                <h3>Turn Strategy into Action</h3>
+                <p>We put your strategy into practice through targeted campaigns, engaging content and search optimisation, helping your business reach potential customers and generate valuable enquiries.</p>
               </div>
               <div className="step">
                 <small>Week 9+</small>
-                <h3>Evolve &amp; Grow</h3>
+                <h3>Measure, Refine  &amp; Grow</h3>
                 <p>We analyse performance, refine strategies and adapt to changing trends to keep your brand visible, relevant and moving forward.</p>
               </div>
             </div>
@@ -632,10 +686,10 @@ export default function HomePage() {
         <section className="sec" id="ai">
           <div className="wrap ai">
             <div className="rv">
-              <h2>Be the answer AI recommends.</h2>
+              <h2>Get Your Brand Seen.</h2>
               <p className="lead">
-                Your buyers now ask ChatGPT, Gemini and Google AI Overviews what to buy. We optimise your entities, content and
-                citations so AI search names your brand, and Google keeps ranking you.
+               Your customers are using ChatGPT, Gemini and Google AI Overviews to discover businesses and compare services. We help UK brands improve their visibility through relevant content, strong SEO foundations and clear brand signals across AI-powered search platforms. 
+
               </p>
               <ul className="ticks">
                 <li>Entity and brand optimisation across the web</li>
@@ -692,10 +746,12 @@ export default function HomePage() {
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
-                <h2>Great Partnerships. Better Stories.</h2>
+                <h2>
+                  Real Experiences.<br />
+                  Trusted Partnerships.
+                </h2>
                 <p>
-                  The strongest relationships are built on trust, collaboration and shared ambition. Here's what our clients have
-                  to say about working with us.
+                  Great results start with strong partnerships. Discover what our clients say about our marketing expertise, transparent communication and commitment to helping their businesses grow. 
                 </p>
               </div>
             </div>
@@ -733,7 +789,9 @@ export default function HomePage() {
                   }}
                 >
                   <div className="who">
-                    <span className="av" />
+                    <span className="av">
+                      <img src="/images/logos/oltao.png" alt="Oltao" className="av-img" />
+                    </span>
                     <div>
                       <b>Oltao</b>
                       <span>Home Appliances Brand · Oltao</span>
@@ -771,7 +829,9 @@ export default function HomePage() {
                   }}
                 >
                   <div className="who">
-                    <span className="av" />
+                    <span className="av">
+                      <img src="/images/logos/iron_street.png" alt="Iron Street" className="av-img" />
+                    </span>
                     <div>
                       <b>Iron Street</b>
                       <span>Furniture Brand · Iron Street</span>
@@ -809,7 +869,9 @@ export default function HomePage() {
                   }}
                 >
                   <div className="who">
-                    <span className="av" />
+                    <span className="av">
+                      <img src="/images/logos/slider-comfort.webp" alt="Comfort Transfers" className="av-img" />
+                    </span>
                     <div>
                       <b>Comfort Transfers</b>
                       <span>Premium Transfers · UK</span>
@@ -847,7 +909,9 @@ export default function HomePage() {
                   }}
                 >
                   <div className="who">
-                    <span className="av" />
+                    <span className="av">
+                      <img src="/images/logos/slider-aloe.webp" alt="Aloe Naturals" className="av-img" />
+                    </span>
                     <div>
                       <b>Aloe Naturals</b>
                       <span>D2C Wellness Brand</span>
@@ -889,7 +953,7 @@ export default function HomePage() {
         <section className="growthore-faq" id="faq" aria-labelledby="growthore-faq-title">
           <div className="wrap faq-wrap">
             <div className="faq-heading rv">
-              <span className="eyebrow">A few things worth knowing</span>
+              
               <h2 id="growthore-faq-title">
                 Frequently Asked <span>Questions</span>
               </h2>
@@ -898,7 +962,7 @@ export default function HomePage() {
             <div className="growthore-faq-list">
               <details className="growthore-faq-item" open>
                 <summary className="growthore-faq-question">
-                  <span>How can Growthore help my business grow?</span>
+                  <span>What digital marketing consulting services does Growthore offer?</span>
                   <span className="growthore-faq-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m6 9 6 6 6-6" />
@@ -907,16 +971,14 @@ export default function HomePage() {
                 </summary>
                 <div className="growthore-faq-answer">
                   <p>
-                    Growthore helps your business attract the right audience, build a stronger online presence and turn interest
-                    into opportunities. We combine performance marketing, social media marketing and AI SEO to create
-                    strategies aligned with your business goals.
+                    Growthore provides digital marketing consulting services to help UK businesses improve their online presence and attract more customers. Our services cover digital strategy, performance marketing, social media marketing and AI-powered SEO, with recommendations tailored to your business goals and target audience.
                   </p>
                 </div>
               </details>
 
               <details className="growthore-faq-item">
                 <summary className="growthore-faq-question">
-                  <span>What makes Growthore different from other marketing agencies?</span>
+                  <span>How can Growthore help my UK business grow?</span>
                   <span className="growthore-faq-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m6 9 6 6 6-6" />
@@ -925,15 +987,14 @@ export default function HomePage() {
                 </summary>
                 <div className="growthore-faq-answer">
                   <p>
-                    At Growthore, we focus on understanding your business before creating a strategy. We bring together
-                    creativity, technology and data-driven insights to deliver marketing that makes sense for your brand.
+                    We help UK businesses attract relevant website traffic, generate qualified leads and improve online conversions. By combining SEO, paid advertising and social media marketing, we develop practical strategies that connect your business with potential customers and support long-term growth.
                   </p>
                 </div>
               </details>
 
               <details className="growthore-faq-item">
                 <summary className="growthore-faq-question">
-                  <span>Can Growthore help my brand stand out from competitors?</span>
+                  <span>What makes Growthore different from other digital marketing agencies in the UK?</span>
                   <span className="growthore-faq-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m6 9 6 6 6-6" />
@@ -942,15 +1003,14 @@ export default function HomePage() {
                 </summary>
                 <div className="growthore-faq-answer">
                   <p>
-                    Yes. We focus on understanding what makes your business unique and communicating it through engaging
-                    content, smart advertising and stronger search visibility to help your brand stand out.
+                    We focus on understanding your business before recommending a marketing strategy. Rather than taking a one-size-fits-all approach, we combine audience research, creative thinking and performance insights to develop campaigns aligned with your goals, budget and growth opportunities.
                   </p>
                 </div>
               </details>
 
               <details className="growthore-faq-item">
                 <summary className="growthore-faq-question">
-                  <span>Can Growthore help generate quality leads for my business?</span>
+                  <span>How much do digital marketing services cost in the UK?</span>
                   <span className="growthore-faq-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m6 9 6 6 6-6" />
@@ -959,15 +1019,14 @@ export default function HomePage() {
                 </summary>
                 <div className="growthore-faq-answer">
                   <p>
-                    Yes. We develop targeted marketing strategies designed to reach people who are genuinely interested in your
-                    products or services, helping you attract more relevant enquiries and potential customers.
+                    Digital marketing costs depend on your business goals, the services required and the scale of your campaigns. SEO, paid advertising and social media management have different pricing requirements. Contact Growthore to discuss your needs and explore a marketing approach suited to your budget.
                   </p>
                 </div>
               </details>
 
               <details className="growthore-faq-item">
                 <summary className="growthore-faq-question">
-                  <span>Does Growthore work with businesses from different industries?</span>
+                  <span>Can Growthore help my business appear in AI search results?</span>
                   <span className="growthore-faq-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m6 9 6 6 6-6" />
@@ -976,15 +1035,14 @@ export default function HomePage() {
                 </summary>
                 <div className="growthore-faq-answer">
                   <p>
-                    Yes. Our strategies are designed around each business's industry, audience and objectives. We adapt our
-                    marketing approach to suit different markets and business models.
+                    Yes. Our AI SEO services focus on improving your brand's visibility across platforms such as ChatGPT, Gemini and Google AI Overviews. We strengthen your website content, search optimisation and online brand signals to help AI-powered search systems understand and discover your business.
                   </p>
                 </div>
               </details>
 
               <details className="growthore-faq-item">
                 <summary className="growthore-faq-question">
-                  <span>How much does it cost to work with Growthore?</span>
+                  <span>How do I get started with Growthore?</span>
                   <span className="growthore-faq-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m6 9 6 6 6-6" />
@@ -993,8 +1051,7 @@ export default function HomePage() {
                 </summary>
                 <div className="growthore-faq-answer">
                   <p>
-                    Our pricing depends on your marketing goals, required services and scope of work. We recommend a suitable
-                    approach based on your business needs and budget.
+                    Getting started is simple. Tell us about your business, current marketing challenges and growth goals. We will discuss your requirements, identify potential opportunities and recommend a digital marketing approach that fits your needs. Contact our team to start the conversation.
                   </p>
                 </div>
               </details>
@@ -1025,11 +1082,7 @@ export default function HomePage() {
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </button>
-            <div className="contact">
-              <span>info@warrgyizmorsch.com</span>
-              <span>+91 92578 74994</span>
-              <span>+44 7789 161193</span>
-            </div>
+           
           </div>
         </section>
       </main>

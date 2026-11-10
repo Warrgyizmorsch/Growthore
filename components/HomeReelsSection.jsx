@@ -6,79 +6,141 @@ const REELS_DATA = [
   {
     id: 'oltao',
     brand: 'Oltao',
+    handle: '@oltao.co',
     initial: 'O',
+    logo: '/images/logos/oltao.png',
+    logoBg: '#ffffff',
     category: 'Home Tech',
     hook: 'Is your fan eating your power bill?',
     tagline: 'Oltao Fan • Smart Home',
     metrics: '240k views • 18k shares',
     likes: '18.4k',
     comments: '342',
-    videoId: 'oltao-reel',
+    thumbnail: '/images/growthore/hero-section/oltao-bg.webp',
+    instagramUrl: 'https://www.instagram.com/reel/DR3-wQLjpMP/',
   },
   {
     id: 'iron-street',
     brand: 'Iron Street',
+    handle: '@ironstreet',
     initial: 'I',
+    logo: '/images/logos/iron_street.png',
+    logoBg: '#ffffff',
     category: 'Interior',
     hook: 'Empty room to dream study in 15 seconds',
     tagline: 'Iron Street Studio • Makeover',
     metrics: '510k views • 42k shares',
     likes: '44.1k',
     comments: '812',
-    videoId: 'ironstreet-reel',
+    thumbnail: '/images/growthore/hero-section/iron-street-bg.webp',
+    instagramUrl: 'https://www.instagram.com/reel/DcOMAhQieju/?hl=en',
   },
   {
-    id: 'rally',
-    brand: 'Rally',
-    initial: 'R',
-    category: 'Appliances',
+    id: 'mewar-hitech',
+    brand: 'Mewar Hitech',
+    handle: '@mewarhitech',
+    initial: 'M',
+    logo: '/images/logos/rally.png',
+    logoBg: '#000000',
+    category: 'Engineering',
     hook: '3 mixer hacks your mom never told you',
-    tagline: 'Rally Appliances • Life Hacks',
+    tagline: 'Mewar Hitech • Life Hacks',
     metrics: '1.2M views • 95k saves',
     likes: '98.6k',
     comments: '1.4k',
-    videoId: 'rally-reel',
+    thumbnail: '/images/growthore/hero-section/rally-bg.webp',
+    instagramUrl: 'https://www.instagram.com/p/De3jQALjIFs/?hl=en',
   },
   {
     id: 'bharat-ceramic',
     brand: 'Bharat Ceramic',
+    handle: '@bharat_ceramic',
     initial: 'B',
+    logo: '/images/logos/bharat-ceramic.webp',
+    logoBg: '#ffffff',
     category: 'Architecture',
     hook: "Textures architects can't stop specifying",
     tagline: 'Bharat Ceramic • Interior Luxe',
     metrics: '380k views • 29k saves',
     likes: '32.8k',
     comments: '520',
-    videoId: 'bharat-reel',
+    thumbnail: '/images/growthore/case-study-images/bharat-ceramic-bg.webp',
+    instagramUrl: 'https://www.instagram.com/reel/Dejs2_8T4Oi/?hl=en',
     isActiveDefault: true,
   },
   {
-    id: 'aloe-naturals',
-    brand: 'Aloe Naturals',
-    initial: 'A',
-    category: 'Skincare',
-    hook: 'My 60-second morning skin routine',
-    tagline: 'Aloe Naturals • Organic Glow',
+    id: 'oltao-luxury',
+    brand: 'Oltao Luxury',
+    handle: '@oltao.co',
+    initial: 'O',
+    logo: '/images/logos/oltao.png',
+    logoBg: '#ffffff',
+    category: 'Smart Living',
+    hook: 'My 60-second morning architectural tour',
+    tagline: 'Oltao Luxury • Smart Airflow',
     metrics: '890k views • 67k saves',
     likes: '71.2k',
     comments: '994',
-    videoId: 'aloe-reel',
+    thumbnail: '/images/growthore/hero-section/aloe-vera-bg.webp',
+    instagramUrl: 'https://www.instagram.com/p/Dd_Mq87vUYY/',
   },
   {
-    id: 'wts-visa',
-    brand: 'WTS Visa',
-    initial: 'W',
-    category: 'Immigration',
-    hook: 'Study in the UK: 3 mistakes to avoid',
-    tagline: 'WTS Global • Student Visa',
+    id: 'democracy-asia',
+    brand: 'Democracy Asia',
+    handle: '@democracyasiaofficial',
+    initial: 'D',
+    logo: '/images/logos/Democracy Asia.png',
+    logoBg: '#ffffff',
+    category: 'Media',
+    hook: 'Visual storytelling engineered to stop the scroll',
+    tagline: 'Democracy Asia • News & Media',
     metrics: '450k views • 38k shares',
     likes: '39.0k',
     comments: '610',
-    videoId: 'wts-reel',
+    thumbnail: '/images/growthore/hero-section/truepower-bg.webp',
+    instagramUrl: 'https://www.instagram.com/reel/DcTPfhpmjfJ/?hl=en',
+  },
+  {
+    id: 'yellow-sapphire',
+    brand: 'Yellow Sapphire',
+    handle: '@yellowsapphirevisa',
+    initial: 'Y',
+    logo: '/images/logos/assignment_logo.png',
+    logoBg: '#ffffff',
+    category: 'Global Study',
+    hook: 'Study in the UK: 3 critical mistakes to avoid',
+    tagline: 'Yellow Sapphire • Visa & Careers',
+    metrics: '310k views • 24k shares',
+    likes: '26.4k',
+    comments: '418',
+    thumbnail: '/images/growthore/case-study-images/wts-bg.webp',
+    instagramUrl: 'https://www.instagram.com/reel/DRywEP9EzLS/?hl=en',
+  },
+  {
+    id: 'wts-consultancy',
+    brand: 'WTS Consultancy',
+    handle: '@wts_consultancy',
+    initial: 'W',
+    logo: '/images/logos/slider-wts.webp',
+    logoBg: '#ffffff',
+    category: 'Immigration',
+    hook: 'UK Student visa secrets you never knew existed',
+    tagline: 'WTS Global • Overseas Education',
+    metrics: '620k views • 51k shares',
+    likes: '53.7k',
+    comments: '730',
+    thumbnail: '/images/growthore/hero-section/comfort-bg.webp',
+    instagramUrl: 'https://www.instagram.com/reel/DcgN65SDw_i/',
   },
 ];
 
 const FILTERS = ['Instagram Reels', 'YouTube Shorts', 'Facebook Reels', 'Paid social ads'];
+
+const getEmbedUrl = (url) => {
+  if (!url) return '';
+  const match = url.match(/instagram\.com\/(?:reel|p)\/([^/?#&]+)/i);
+  return match ? `https://www.instagram.com/reel/${match[1]}/embed/` : url;
+};
 
 export default function HomeReelsSection() {
   const sliderRef = useRef(null);
@@ -97,145 +159,105 @@ export default function HomeReelsSection() {
     }
   };
 
-  const handleOpenReel = (reel) => {
-    setActiveId(reel.id);
-    if (typeof window !== 'undefined' && typeof window.openStoryVideo === 'function') {
-      window.openStoryVideo(reel.videoId, reel.brand);
-    }
-  };
-
   return (
     <section className="home-reels-section" id="reels-showcase">
       <div className="home-reels-wrap">
         {/* Header */}
         <div className="home-reels-head">
           <div className="home-reels-head-left">
-            <div className="home-reels-eyebrow">
-              <span>—</span> REELS WE'VE MADE
-            </div>
-            <h2 className="home-reels-title">Content that stops the scroll.</h2>
+            <h2 className="home-reels-title">
+              Content That Stops<br />
+              the Scroll.
+            </h2>
             <p className="home-reels-desc">
               Short-form video engineered for algorithmic reach and direct-response conversions across Meta and YouTube.
             </p>
           </div>
-
-          <div className="home-reels-head-right">
-            <div className="home-reels-nav-btns">
-              <button
-                type="button"
-                className="home-reels-btn"
-                onClick={scrollLeft}
-                aria-label="Previous reel"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M15 18l-6-6 6-6" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                className="home-reels-btn home-reels-btn-primary"
-                onClick={scrollRight}
-                aria-label="Next reel"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </button>
-            </div>
-          </div>
         </div>
 
-        {/* Slider */}
-        <div className="home-reels-slider" ref={sliderRef}>
+        {/* Reels Window with Side Navigation Arrows */}
+        <div className="home-reels-window">
+          <button
+            type="button"
+            className="home-reels-side-btn prev-btn"
+            onClick={scrollLeft}
+            aria-label="Previous reel"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <div className="home-reels-slider" ref={sliderRef}>
           {REELS_DATA.map((reel) => {
             const isSelected = activeId === reel.id;
+
             return (
               <div
                 key={reel.id}
                 className={`home-reel-card ${isSelected ? 'active' : ''}`}
-                onClick={() => handleOpenReel(reel)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    handleOpenReel(reel);
-                  }
-                }}
+                onClick={() => setActiveId(reel.id)}
+                role="region"
+                aria-label={`${reel.brand} Instagram reel`}
               >
-                {/* Top bar */}
-                <div className="home-reel-top">
+                {/* Header Overlay with Creator/Brand Name */}
+                <div className="home-reel-header-overlay">
                   <div className="home-reel-brand">
-                    <div className="home-reel-avatar">{reel.initial}</div>
-                    <span className="home-reel-brand-name">{reel.brand}</span>
+                    <div
+                      className="home-reel-avatar"
+                      style={{ background: reel.logoBg || '#ffffff' }}
+                    >
+                      {reel.logo ? (
+                        <img
+                          src={reel.logo}
+                          alt={reel.brand}
+                          className="home-reel-avatar-img"
+                        />
+                      ) : (
+                        reel.initial
+                      )}
+                    </div>
+                    <div className="home-reel-brand-info">
+                      <span className="home-reel-brand-name">{reel.brand}</span>
+                      <span className="home-reel-brand-handle">{reel.handle}</span>
+                    </div>
                   </div>
                   <span className="home-reel-pill">{reel.category}</span>
                 </div>
 
-                {/* Center art / play */}
-                <div className="home-reel-center">
-                  <div className="home-reel-bg-art" />
-                  <div className="home-reel-play-btn" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                      <polygon points="6 3 20 12 6 21 6 3" />
-                    </svg>
-                  </div>
+                {/* Embed Container with Clipped Iframe */}
+                <div className="home-reel-embed-container">
+                  <iframe
+                    src={getEmbedUrl(reel.instagramUrl)}
+                    className="home-reel-embed-frame"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    allowFullScreen
+                    scrolling="no"
+                    loading="lazy"
+                    title={`${reel.brand} Instagram reel`}
+                  />
                 </div>
 
-                {/* Right rail action counters */}
-                <div className="home-reel-rail" aria-hidden="true">
-                  <div className="home-reel-action">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                    </svg>
-                    <span>{reel.likes}</span>
-                  </div>
-                  <div className="home-reel-action">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                    <span>{reel.comments}</span>
-                  </div>
-                  <div className="home-reel-action">
-                    <svg viewBox="0 0 24 24">
-                      <circle cx="18" cy="5" r="3" />
-                      <circle cx="6" cy="12" r="3" />
-                      <circle cx="18" cy="19" r="3" />
-                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Bottom Hook & details */}
-                <div className="home-reel-bottom">
-                  <h3 className="home-reel-hook">{reel.hook}</h3>
-                  <div className="home-reel-tagline">{reel.tagline}</div>
-                  <div className="home-reel-metrics">{reel.metrics}</div>
-                </div>
+                {/* Bottom subtle edge overlay */}
+                <div className="home-reel-bottom-overlay" />
               </div>
             );
           })}
         </div>
 
-        {/* Footer controls & hints */}
-        <div className="home-reels-footer">
-          <div className="home-reels-filters">
-            {FILTERS.map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                className={`home-reels-filter-btn ${activeFilter === filter ? 'active' : ''}`}
-                onClick={() => setActiveFilter(filter)}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-          <div className="home-reels-drag-hint">
-            Drag or tap a reel to play it
-          </div>
-        </div>
+        <button
+          type="button"
+          className="home-reels-side-btn next-btn"
+          onClick={scrollRight}
+          aria-label="Next reel"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+
+       
       </div>
     </section>
   );

@@ -340,10 +340,6 @@ export default function AiSeoPage() {
             <span style={{ color: '#fff' }}>AI SEO</span>
           </nav>
 
-          <span className="bx-kick">
-            <span className="live"></span>AI SEO Agency · GEO &amp; AEO
-          </span>
-
           <h1 className="bx1">
             <span className="line"><span className="w">Be the brand</span></span>
             <span className="line">
@@ -449,7 +445,7 @@ export default function AiSeoPage() {
 
       {/* PROMPTS MARQUEE */}
       <section className="prompts" aria-label="Questions buyers ask AI">
-        <p className="lbl"><span className="eyebrow">What your buyers are asking AI right now</span></p>
+        <p className="lbl">What your buyers are asking AI right now</p>
         <div className="mask">
           <div className="prow" aria-hidden="true">
             <span className="pp"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>Most energy-efficient ceiling fan in India?</span>
@@ -474,14 +470,15 @@ export default function AiSeoPage() {
       {/* SHIFT: BEFORE / AFTER */}
       <section className="sec alt" id="shift">
         <div className="wrap">
-          <div className="head">
-            <div>
-              <span className="eyebrow">What&apos;s changed</span>
-              <h2>Search used to be ten links. Now it&apos;s one answer.</h2>
-            </div>
-            <div className="r">
-              <p>When AI writes the answer, there&apos;s no page two. You&apos;re either named in it or you&apos;re invisible.</p>
-            </div>
+          <div className="head rv">
+            <h2>
+              Search Used to Be Ten Links.<br />
+              Now It&apos;s One Answer.
+            </h2>
+            <p>
+              When generative AI answers your prospective buyers, there is no page two.<br className="d-none d-sm-inline" />
+              Your business is either explicitly cited in the answer or completely invisible.
+            </p>
           </div>
 
           <div className="shift">
@@ -570,14 +567,15 @@ export default function AiSeoPage() {
       {/* SOURCE TRACING */}
       <section className="sec" id="sources">
         <div className="wrap">
-          <div className="head">
-            <div>
-              <span className="eyebrow">Where AI gets its answer</span>
-              <h2>Every line of an AI answer comes from somewhere.</h2>
-            </div>
-            <div className="r">
-              <p>Hover or tap any part of the answer to see the source behind it. Each source is a signal we can strengthen for you.</p>
-            </div>
+          <div className="head rv">
+            <h2>
+              Every Line of an AI Answer<br />
+              Comes From Somewhere.
+            </h2>
+            <p>
+              Inspect the authoritative sources behind every generated recommendation.<br className="d-none d-sm-inline" />
+              Each citation represents a discoverability signal we actively optimise for your brand.
+            </p>
           </div>
 
           <div className="trace" id="trace" ref={traceRef}>
@@ -756,14 +754,15 @@ export default function AiSeoPage() {
       {/* SIX SIGNALS / KNOWLEDGE GRAPH */}
       <section className="sec" id="pillars">
         <div className="wrap">
-          <div className="head">
-            <div>
-              <span className="eyebrow">What we optimise</span>
-              <h2>Six signals AI uses to decide who to recommend.</h2>
-            </div>
-            <div className="r">
-              <p>AI engines build a picture of your brand from everywhere it appears. We strengthen every signal that feeds that picture. Tap a signal to see what we do.</p>
-            </div>
+          <div className="head rv">
+            <h2>
+              Six Core Signals AI Uses<br />
+              to Recommend Your Brand.
+            </h2>
+            <p>
+              AI engines build an authority profile of your business from across the web.<br className="d-none d-sm-inline" />
+              We systematically strengthen every digital signal that feeds into that recommendation model.
+            </p>
           </div>
 
           <div className="graph-wrap">
@@ -833,14 +832,15 @@ export default function AiSeoPage() {
       {/* AI READINESS SCORE */}
       <section className="sec alt" id="score">
         <div className="wrap">
-          <div className="head">
-            <div>
-              <span className="eyebrow">AI readiness score</span>
-              <h2>How ready is your brand for AI search?</h2>
-            </div>
-            <div className="r">
-              <p>Switch on everything that&apos;s true today. Your score and your top three fixes update as you go.</p>
-            </div>
+          <div className="head rv">
+            <h2>
+              How Ready Is Your Brand<br />
+              for Generative AI Search?
+            </h2>
+            <p>
+              Evaluate your digital footprint against modern AI retrieval and citation criteria.<br className="d-none d-sm-inline" />
+              Toggle the signals that are live today to calculate your score and actionable priorities.
+            </p>
           </div>
 
           <div className="score">
@@ -958,14 +958,15 @@ export default function AiSeoPage() {
       {/* FREE CHECKER */}
       <section className="sec" id="check">
         <div className="wrap">
-          <div className="head">
-            <div>
-              <span className="eyebrow">Free AI visibility check</span>
-              <h2>Does AI know your brand exists?</h2>
-            </div>
-            <div className="r">
-              <p>Tell us your brand and category. We&apos;ll show you the kind of questions we test, then run the full check for you.</p>
-            </div>
+          <div className="head rv">
+            <h2>
+              Does Generative AI Know<br />
+              Your Business Exists?
+            </h2>
+            <p>
+              Enter your brand and category to preview real-time query simulations across major LLMs,<br className="d-none d-sm-inline" />
+              then let our team run a comprehensive AI brand presence audit for your business.
+            </p>
           </div>
 
           <div className="checker">
@@ -1109,14 +1110,15 @@ export default function AiSeoPage() {
       {/* PROCESS */}
       <section className="sec alt" id="process">
         <div className="wrap">
-          <div className="head">
-            <div>
-              <span className="eyebrow">How we work</span>
-              <h2>From invisible to recommended.</h2>
-            </div>
-            <div className="r">
-              <p>Classic SEO and AI SEO run as one plan, so every fix helps you rank on Google and get named in AI answers.</p>
-            </div>
+          <div className="head rv">
+            <h2>
+              From Invisible Online<br />
+              to Consistently Recommended.
+            </h2>
+            <p>
+              Classic SEO and Generative Engine Optimisation deployed as one unified roadmap,<br className="d-none d-sm-inline" />
+              ensuring every technical improvement drives both Google ranks and AI citations.
+            </p>
           </div>
 
           <div className="proc">
@@ -1194,14 +1196,15 @@ export default function AiSeoPage() {
       {/* SAMPLE VISIBILITY REPORT */}
       <section className="sec" id="report">
         <div className="wrap">
-          <div className="head">
-            <div>
-              <span className="eyebrow">What you get every month</span>
-              <h2>See exactly where AI mentions you.</h2>
-            </div>
-            <div className="r">
-              <p>A report you can read in five minutes: your share of AI answers, prompt by prompt, and the fixes we&apos;re making next.</p>
-            </div>
+          <div className="head rv">
+            <h2>
+              See Exactly Where AI<br />
+              Mentions Your Company.
+            </h2>
+            <p>
+              A straightforward monthly report tracking your share of voice across buyer prompts,<br className="d-none d-sm-inline" />
+              highlighting competitor placements and the strategic fixes driving your citation growth.
+            </p>
           </div>
 
           <div className="report" id="reportCard">
@@ -1285,11 +1288,15 @@ export default function AiSeoPage() {
       {/* TRUST */}
       <section className="sec alt" id="trust">
         <div className="wrap">
-          <div className="head">
-            <div>
-              <span className="eyebrow">Why us</span>
-              <h2>SEO people first. Honest about AI.</h2>
-            </div>
+          <div className="head rv">
+            <h2>
+              Search Specialists First.<br />
+              Transparent About AI.
+            </h2>
+            <p>
+              Proven organic search expertise paired with cutting-edge retrieval analysis,<br className="d-none d-sm-inline" />
+              delivering measurable authority without hype or unverified marketing gimmicks.
+            </p>
           </div>
 
           <div className="tr3">
@@ -1321,11 +1328,15 @@ export default function AiSeoPage() {
       {/* FAQ */}
       <section className="sec" id="faq">
         <div className="wrap">
-          <div className="head" style={{ justifyContent: 'center', textAlign: 'center' }}>
-            <div>
-              <span className="eyebrow">FAQ</span>
-              <h2 style={{ maxWidth: 'none' }}>AI SEO, answered.</h2>
-            </div>
+          <div className="head rv">
+            <h2>
+              Everything You Need to Know<br />
+              About Generative AI SEO.
+            </h2>
+            <p>
+              Clear answers to the most common questions about GEO, AEO, and citations.<br className="d-none d-sm-inline" />
+              Understand how your business can rank and stay recommended as search evolves.
+            </p>
           </div>
 
           <div className="faq">
@@ -1409,9 +1420,14 @@ export default function AiSeoPage() {
         <div className="halo" aria-hidden="true"></div>
         <div className="halo r" aria-hidden="true"></div>
         <div className="wrap in">
-          <span className="eyebrow">Free AI visibility check</span>
-          <h2>Be the answer,<br /><span className="outline red">not the also-ran.</span></h2>
-          <p>We&apos;ll test the questions your buyers ask AI, show you who gets named instead of you, and walk you through what to fix first. Free, with no obligation.</p>
+          <h2>
+            Be the Recommended Answer,<br />
+            <span className="outline red">Not the Also-Ran.</span>
+          </h2>
+          <p>
+            We&apos;ll audit what AI models recommend to your prospective customers today,<br className="d-none d-sm-inline" />
+            show who gets cited instead of you, and map out the highest-impact fixes first.
+          </p>
           <button
             onClick={() => handleOpenLead('AI SEO')}
             className="btn btn-white"

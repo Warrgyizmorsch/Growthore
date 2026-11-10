@@ -274,7 +274,7 @@ export default function AboutPage() {
           <div className="wrap">
             <div className="head rv">
               <div>
-                <span className="eyebrow">Our team</span>
+                
                 <h2>The people who'll work on your brand.</h2>
               </div>
               <div className="r">
