@@ -332,14 +332,6 @@ export default function AiSeoPage() {
         <div className="orb" id="orb" ref={orbRef} aria-hidden="true"></div>
 
         <div className="wrap">
-          <nav className="crumb" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <Link href="/#services">Services</Link>
-            <span>/</span>
-            <span style={{ color: '#fff' }}>AI SEO</span>
-          </nav>
-
           <h1 className="bx1">
             <span className="line"><span className="w">Be the brand</span></span>
             <span className="line">
@@ -444,7 +436,7 @@ export default function AiSeoPage() {
       <Marquee />
 
       {/* PROMPTS MARQUEE */}
-      <section className="prompts" aria-label="Questions buyers ask AI">
+      <section className="prompts section-py py-6 md:py-8" aria-label="Questions buyers ask AI">
         <p className="lbl">What your buyers are asking AI right now</p>
         <div className="mask">
           <div className="prow" aria-hidden="true">
@@ -468,7 +460,7 @@ export default function AiSeoPage() {
       </section>
 
       {/* SHIFT: BEFORE / AFTER */}
-      <section className="sec alt" id="shift">
+      <section className="sec alt section-py py-6 md:py-8" id="shift">
         <div className="wrap">
           <div className="head rv">
             <h2>
@@ -565,7 +557,7 @@ export default function AiSeoPage() {
       </section>
 
       {/* SOURCE TRACING */}
-      <section className="sec" id="sources">
+      <section className="sec section-py py-6 md:py-8" id="sources">
         <div className="wrap">
           <div className="head rv">
             <h2>
@@ -752,7 +744,7 @@ export default function AiSeoPage() {
       </section>
 
       {/* SIX SIGNALS / KNOWLEDGE GRAPH */}
-      <section className="sec" id="pillars">
+      <section className="sec section-py py-6 md:py-8" id="pillars">
         <div className="wrap">
           <div className="head rv">
             <h2>
@@ -830,7 +822,7 @@ export default function AiSeoPage() {
       </section>
 
       {/* AI READINESS SCORE */}
-      <section className="sec alt" id="score">
+      <section className="sec alt section-py py-6 md:py-8" id="score">
         <div className="wrap">
           <div className="head rv">
             <h2>
@@ -956,7 +948,7 @@ export default function AiSeoPage() {
       </div>
 
       {/* FREE CHECKER */}
-      <section className="sec" id="check">
+      <section className="sec section-py py-6 md:py-8" id="check">
         <div className="wrap">
           <div className="head rv">
             <h2>
@@ -1108,7 +1100,7 @@ export default function AiSeoPage() {
       </section>
 
       {/* PROCESS */}
-      <section className="sec alt" id="process">
+      <section className="sec alt section-py py-6 md:py-8" id="process">
         <div className="wrap">
           <div className="head rv">
             <h2>
@@ -1194,7 +1186,7 @@ export default function AiSeoPage() {
       </section>
 
       {/* SAMPLE VISIBILITY REPORT */}
-      <section className="sec" id="report">
+      <section className="sec section-py py-6 md:py-8" id="report">
         <div className="wrap">
           <div className="head rv">
             <h2>
@@ -1286,7 +1278,7 @@ export default function AiSeoPage() {
       </section>
 
       {/* TRUST */}
-      <section className="sec alt" id="trust">
+      <section className="sec alt section-py py-6 md:py-8" id="trust">
         <div className="wrap">
           <div className="head rv">
             <h2>
@@ -1326,7 +1318,7 @@ export default function AiSeoPage() {
       </section>
 
       {/* FAQ */}
-      <section className="sec" id="faq">
+      <section className="sec section-py py-6 md:py-8" id="faq">
         <div className="wrap">
           <div className="head rv">
             <h2>
@@ -1416,7 +1408,7 @@ export default function AiSeoPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="fcta" id="audit">
+      <section className="fcta section-py py-6 md:py-8" id="audit">
         <div className="halo" aria-hidden="true"></div>
         <div className="halo r" aria-hidden="true"></div>
         <div className="wrap in">

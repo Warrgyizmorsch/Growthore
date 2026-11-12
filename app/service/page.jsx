@@ -16,10 +16,6 @@ export default function ServicesPage() {
       <div className="wrap">
         {/* Hero Section */}
         <div className="svc-hero">
-          <div className="badge-pill">
-            <span className="dot" />
-            Growthore Capabilities · 3 Core Disciplines
-          </div>
           <h1>
             Engineered for <span className="grad-text">Revenue Growth</span>, Not Vanity Metrics.
           </h1>

@@ -469,13 +469,6 @@ export default function SocialMediaPage() {
             <div className="spot" />
           </div>
           <div className="wrap">
-            <nav className="crumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span>/</span>
-              <Link href="/#services">Services</Link>
-              <span>/</span>
-              <span style={{ color: '#fff' }}>Social Media Marketing</span>
-            </nav>
             <div className="headwrap">
               <span className="soc ln" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
@@ -673,7 +666,7 @@ export default function SocialMediaPage() {
         </div>
 
         {/* WORK / PROFILE FEED */}
-        <section className="sec" id="work">
+        <section className="sec section-py py-6 md:py-8" id="work">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -834,7 +827,7 @@ export default function SocialMediaPage() {
         </div>
 
         {/* FORMATS BENTO */}
-        <section className="sec" id="formats">
+        <section className="sec section-py py-6 md:py-8" id="formats">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -1036,7 +1029,7 @@ export default function SocialMediaPage() {
         </section>
 
         {/* HOOK LAB */}
-        <section className="sec" id="hooks">
+        <section className="sec section-py py-6 md:py-8" id="hooks">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -1188,7 +1181,7 @@ export default function SocialMediaPage() {
         </section>
 
         {/* MIX BUILDER */}
-        <section className="sec alt" id="mix">
+        <section className="sec alt section-py py-6 md:py-8" id="mix">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -1355,7 +1348,7 @@ export default function SocialMediaPage() {
         </section>
 
         {/* CALENDAR */}
-        <section className="sec" id="calendar">
+        <section className="sec section-py py-6 md:py-8" id="calendar">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -1501,7 +1494,7 @@ export default function SocialMediaPage() {
         </section>
 
         {/* INDUSTRIES WE WORK WITH */}
-        <section className="sec alt industries-sec" id="industries">
+        <section className="sec alt industries-sec section-py py-6 md:py-8" id="industries">
           {/* Top-Right & Bottom-Right Decorative Blue Orbital Curves */}
           <svg className="industries-orbit-top" viewBox="0 0 340 240" fill="none" aria-hidden="true">
             <circle cx="290" cy="-10" r="175" fill="#0d3b8c" fillOpacity="0.28" stroke="#2584ff" strokeOpacity="0.45" strokeWidth="1.2" />
@@ -1767,7 +1760,7 @@ export default function SocialMediaPage() {
         </section>
 
         {/* FAQ */}
-        <section className="sec" id="faq">
+        <section className="sec section-py py-6 md:py-8" id="faq">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -1863,7 +1856,7 @@ export default function SocialMediaPage() {
         </section>
 
         {/* CTA */}
-        <section className="fcta" id="audit">
+        <section className="fcta section-py py-6 md:py-8" id="audit">
           <div className="halo" aria-hidden="true" />
           <div className="halo b" aria-hidden="true" />
           <div className="wrap in">

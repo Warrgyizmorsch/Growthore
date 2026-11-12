@@ -38,12 +38,12 @@
 }
 .thankyou-wrapper .is-uk-domain .nav, .thankyou-wrapper .is-uk-domain .header {
 
-  top: 31px !important;
+  top: var(--uk-strip-height, 31px) !important;
 
 }
 /* Sticky offset when UK top strip is active */
 .thankyou-wrapper .has-uk-strip .nav, .thankyou-wrapper .has-uk-strip .header {
- top: 31px !important; 
+ top: var(--uk-strip-height, 31px) !important; 
 }
 /* UK Trust Top Strip */
 .uk-top-strip {
@@ -171,7 +171,7 @@ body {
 }
 /* nav */
 .nav {
-position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);z-index:50;margin-top:16px
+position:sticky;top: var(--uk-strip-height, 31px);z-index:50;margin-top:16px
 }
 .nav .wrap {
 position:relative

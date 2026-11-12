@@ -150,15 +150,6 @@ export default function ContactPage() {
             <div className="spot" />
           </div>
           <div className="wrap">
-            <nav className="crumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span>/</span>
-              <span style={{ color: '#fff' }}>Contact us</span>
-            </nav>
-            <span className="ck">
-              <span className="live" />
-              We reply within one working day
-            </span>
             <h1 className="ch1">
               <span className="line">
                 <span className="w" style={{ '--i': 0 }}>Let's talk about</span>
@@ -239,7 +230,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="sec" id="form" style={{ paddingTop: 'clamp(30px,5vw,60px)' }}>
+        <section className="sec section-py py-6 md:py-8" id="form">
           <div className="wrap cgrid">
             <div className="fbox rv" id="fbox">
               <h2>Tell us about your project</h2>
@@ -469,11 +460,10 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="sec alt" id="faq">
+        <section className="sec alt section-py py-6 md:py-8" id="faq">
           <div className="wrap">
             <div className="head rv" style={{ justifyContent: 'center', textAlign: 'center' }}>
               <div>
-                <span className="eyebrow">Before you write</span>
                 <h2 style={{ maxWidth: 'none' }}>Quick answers.</h2>
               </div>
             </div>

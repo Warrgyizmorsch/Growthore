@@ -303,7 +303,7 @@ export default function HomePage() {
         <Marquee />
 
         {/* SERVICES SECTION */}
-        <section className="sec" id="services">
+        <section className="sec section-py py-6 md:py-8" id="services">
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
@@ -379,7 +379,7 @@ export default function HomePage() {
         </section>
 
         {/* WHY PARTNER SECTION */}
-        <section className="sec alt">
+        <section className="sec alt section-py py-6 md:py-8">
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
@@ -446,7 +446,7 @@ export default function HomePage() {
         </section>
 
         {/* WORK SECTION */}
-        <section className="sec" id="work">
+        <section className="sec section-py py-6 md:py-8" id="work">
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
@@ -626,7 +626,7 @@ export default function HomePage() {
         </section>
 
         {/* STATEMENT SECTION */}
-        <section className="statement" id="statement">
+        <section className="statement section-py py-6 md:py-8" id="statement">
           <div className="glow" aria-hidden="true" />
           <div className="wrap">
             <h2>
@@ -641,7 +641,7 @@ export default function HomePage() {
         </section>
 
         {/* PROCESS SECTION */}
-        <section className="sec alt" id="process">
+        <section className="sec alt section-py py-6 md:py-8" id="process">
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
@@ -683,7 +683,7 @@ export default function HomePage() {
         </section>
 
         {/* AI SEO SECTION */}
-        <section className="sec" id="ai">
+        <section className="sec section-py py-6 md:py-8" id="ai">
           <div className="wrap ai">
             <div className="rv">
               <h2>Get Your Brand Seen.</h2>
@@ -742,7 +742,7 @@ export default function HomePage() {
         <HomeReelsSection />
 
         {/* TESTIMONIALS SECTION */}
-        <section className="sec alt" id="testimonials">
+        <section className="sec alt section-py py-6 md:py-8" id="testimonials">
           <div className="wrap">
             <div className="head rv">
               <div className="head-text">
@@ -950,7 +950,7 @@ export default function HomePage() {
         <HomeTeamSection />
 
         {/* GROWTHORE FAQ SECTION */}
-        <section className="growthore-faq" id="faq" aria-labelledby="growthore-faq-title">
+        <section className="growthore-faq section-py py-6 md:py-8" id="faq" aria-labelledby="growthore-faq-title">
           <div className="wrap faq-wrap">
             <div className="faq-heading rv">
               
@@ -1060,7 +1060,7 @@ export default function HomePage() {
         </section>
 
         {/* CTA BOTTOM SECTION */}
-        <section className="cta" id="talk">
+        <section className="cta section-py py-6 md:py-8" id="talk">
           <div className="halo" aria-hidden="true" />
           <div className="ring" aria-hidden="true" />
           <div className="wrap cta-in">

@@ -126,22 +126,48 @@ section {
   scroll-margin-top: 80px;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--silver);
+/* ==========================================================================
+   Global Consistent Section Padding System
+   Mobile: py-6 (1.5rem / 24px)
+   Tablet & Desktop: md:py-8 (2rem / 32px)
+   ========================================================================== */
+
+.section-py,
+.py-section,
+.sec-py,
+.py-6 {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
 }
 
-.eyebrow::before {
-  content: '';
-  width: 28px;
-  height: 1px;
-  background: var(--fg);
+@media (min-width: 768px) {
+  .section-py,
+  .py-section,
+  .sec-py,
+  .md\:py-8 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+/* ==========================================================================
+   Global Removal of Eyebrows & Breadcrumb Navigation Menus
+   ========================================================================== */
+.eyebrow,
+.blog-eyebrow,
+.home-team-eyebrow,
+.home-reels-eyebrow,
+.campaigns-eyebrow,
+.ak,
+.ck,
+.badge-pill,
+.crumb,
+.kick,
+.blog-breadcrumbs,
+nav.crumb,
+nav[aria-label="Breadcrumb"],
+nav[aria-label="Breadcrumbs"] {
+  display: none !important;
 }
 
 .outline {
@@ -228,27 +254,99 @@ section {
 }
 .btn[disabled] { opacity: 0.45; pointer-events: none; box-shadow: none; }
 
+:root {
+  --uk-strip-height: 31px;
+}
+
 /* Navigation */
 .nav {
   position: sticky;
-  top: calc(env(safe-area-inset-top, 0px) + 16px);
+  top: var(--uk-strip-height, 31px);
   z-index: 50;
-  margin-top: 16px;
+  margin-top: 0;
+  padding-top: 12px;
+  width: 100%;
+  transform: translateZ(0);
+  transition: padding-top 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: padding-top;
 }
+.uk-top-strip ~ .nav,
+.has-uk-strip .nav,
 .is-uk-domain .nav {
-  top: 31px !important;
+  top: var(--uk-strip-height, 31px) !important;
 }
-.nav .wrap { position: relative; }
+.nav .wrap {
+  position: relative;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 28px);
+  transition: max-width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              padding-inline 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: max-width, padding-inline;
+}
 .nav-in {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 10px 10px 10px 22px;
-  border-radius: 999px;
-  background: rgba(12, 12, 13, 0.6);
+  padding: 10px 14px 10px 22px;
+  border-radius: 26px;
+  background-color: rgba(12, 12, 13, 0.65);
   border: 1px solid var(--line);
-  backdrop-filter: blur(22px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform: translateZ(0);
+  transition: border-radius 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.3s ease,
+              border-color 0.3s ease,
+              padding 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease;
+  will-change: border-radius, background-color;
+}
+
+/* Scrolled full-width sticky state */
+.nav.is-scrolled,
+.page-home .nav.is-scrolled,
+.thankyou-wrapper .nav.is-scrolled,
+.page-about .nav.is-scrolled,
+.page-contact .nav.is-scrolled,
+.page-performance .nav.is-scrolled,
+.ai-seo-page .nav.is-scrolled,
+.page-social .nav.is-scrolled {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  top: var(--uk-strip-height, 31px) !important;
+}
+
+.nav.is-scrolled .wrap,
+.page-home .nav.is-scrolled .wrap,
+.thankyou-wrapper .nav.is-scrolled .wrap,
+.page-about .nav.is-scrolled .wrap,
+.page-contact .nav.is-scrolled .wrap,
+.page-performance .nav.is-scrolled .wrap,
+.ai-seo-page .nav.is-scrolled .wrap,
+.page-social .nav.is-scrolled .wrap {
+  max-width: 100% !important;
+  padding-inline: 0 !important;
+}
+
+.nav.is-scrolled .nav-in,
+.page-home .nav.is-scrolled .nav-in,
+.thankyou-wrapper .nav.is-scrolled .nav-in,
+.page-about .nav.is-scrolled .nav-in,
+.page-contact .nav.is-scrolled .nav-in,
+.page-performance .nav.is-scrolled .nav-in,
+.ai-seo-page .nav.is-scrolled .nav-in,
+.page-social .nav.is-scrolled .nav-in {
+  border-radius: 0 !important;
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom: 1px solid rgba(150, 182, 255, 0.16) !important;
+  background-color: rgba(4, 13, 33, 0.94) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  padding: 10px clamp(16px, 4vw, 36px) !important;
 }
 .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .logo-img { height: 34px; width: auto; display: block; object-fit: contain; }
@@ -383,14 +481,8 @@ section {
 
 /* Breadcrumb nav */
 .crumb {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13.5px;
-  color: var(--muted);
-  margin-bottom: 24px;
+  display: none !important;
 }
-.crumb a:hover { color: #fff; }
 
 @media (max-width: 880px) {
   .links {
@@ -545,6 +637,14 @@ section {
   color: #79a6ff;
   border: 1px solid rgba(47, 107, 255, 0.35);
   text-transform: uppercase;
+}
+.uk-flag-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  vertical-align: middle;
 }
 .uk-strip-left strong { color: #ffffff; font-weight: 600; }
 .uk-sep { color: rgba(150, 182, 255, 0.25); font-size: 10px; }
@@ -1222,9 +1322,3 @@ footer {
   .pop-x { right: 14px; top: 14px; }
 }
 
-/* Animations */
-@keyframes pulse { 50% { box-shadow: 0 0 2px #fff; opacity: 0.5; } }
-@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-@keyframes spin2 { to { transform: rotate(360deg); } }
-@keyframes breathe { 50% { opacity: 0.55; transform: translateX(-50%) scale(1.08); } }
-@keyframes breathe2 { 50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); } }

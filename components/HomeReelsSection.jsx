@@ -160,7 +160,7 @@ export default function HomeReelsSection() {
   };
 
   return (
-    <section className="home-reels-section" id="reels-showcase">
+    <section className="home-reels-section section-py py-6 md:py-8" id="reels-showcase">
       <div className="home-reels-wrap">
         {/* Header */}
         <div className="home-reels-head">

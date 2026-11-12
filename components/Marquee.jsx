@@ -16,7 +16,7 @@ const logos = [
 
 export default function Marquee() {
   return (
-    <section className="brand-marquee-sec" aria-label="Brands we have scaled">
+    <section className="brand-marquee-sec section-py py-6 md:py-8" aria-label="Brands we have scaled">
       <h1 className="brand-marquee-heading">Brands We Have Scaled</h1>
       <div className="brand-marquee-wrap">
         <div className="brand-marquee-track">

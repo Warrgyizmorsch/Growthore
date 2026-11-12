@@ -4191,7 +4191,7 @@ animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-
 }
 /* Sticky offset when UK top strip is active */
 html.has-uk-strip  .lp-agency-wrapper .nav, .has-uk-strip  .lp-agency-wrapper .nav, html.has-uk-strip  .lp-agency-wrapper .header, .has-uk-strip  .lp-agency-wrapper .header {
- top: 31px !important; 
+ top: var(--uk-strip-height, 31px) !important; 
 }
 /* UK Domain Conditional Display */
 .lp-agency-wrapper .uk-top-strip, .lp-agency-wrapper .uk-only-content {
@@ -4211,7 +4211,7 @@ html.is-uk-domain  .lp-agency-wrapper .uk-only-content, .is-uk-domain  .lp-agenc
 }
 html.is-uk-domain  .lp-agency-wrapper .nav, .is-uk-domain  .lp-agency-wrapper .nav, html.is-uk-domain  .lp-agency-wrapper .header, .is-uk-domain  .lp-agency-wrapper .header {
 
-  top: 31px !important;
+  top: var(--uk-strip-height, 31px) !important;
 
 }
 /* UK Trust Top Strip */
@@ -4260,6 +4260,14 @@ html.is-uk-domain  .lp-agency-wrapper .nav, .is-uk-domain  .lp-agency-wrapper .n
   border: 1px solid rgba(47, 107, 255, 0.35);
   text-transform: uppercase;
 
+}
+.lp-agency-wrapper .uk-flag-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  vertical-align: middle;
 }
 .lp-agency-wrapper .uk-strip-left strong {
 

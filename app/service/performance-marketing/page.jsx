@@ -419,13 +419,6 @@ export default function PerformanceMarketingPage() {
             <div className="spot" />
           </div>
           <div className="wrap">
-            <nav className="crumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span>/</span>
-              <Link href="/#services">Services</Link>
-              <span>/</span>
-              <span style={{ color: '#fff' }}>Performance Marketing</span>
-            </nav>
             <h1 className="bh1">
               <span className="bl">
                 <span className="w" style={{ '--i': 0 }}>Performance Marketing</span>
@@ -659,7 +652,7 @@ export default function PerformanceMarketingPage() {
         <Marquee />
 
         {/* LIVE VIEW */}
-        <section className="sec alt" id="live">
+        <section className="sec alt section-py py-6 md:py-8" id="live">
           <div className="wrap live-grid">
             <div className="rv">
 
@@ -728,7 +721,7 @@ export default function PerformanceMarketingPage() {
         </div>
 
         {/* PROOF */}
-        <section className="proof">
+        <section className="proof section-py py-6 md:py-8">
           <div className="wrap">
             <div className="proof-in rv">
               <div className="pcell big">
@@ -753,7 +746,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* NICHES */}
-        <section className="sec" id="niches">
+        <section className="sec section-py py-6 md:py-8" id="niches">
           <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
             <defs>
               <linearGradient id="metal" x1="0" x2="1" y1="0" y2="1">
@@ -937,7 +930,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* ADS IN ACTION */}
-        <section className="sec" id="ads">
+        <section className="sec section-py py-6 md:py-8" id="ads">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -1207,7 +1200,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* LEAKS */}
-        <section className="sec alt" id="leaks">
+        <section className="sec alt section-py py-6 md:py-8" id="leaks">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -1319,7 +1312,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* CALCULATOR */}
-        <section className="sec" id="calc">
+        <section className="sec section-py py-6 md:py-8" id="calc">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -1425,7 +1418,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* FRAMEWORK */}
-        <section className="sec alt" id="framework">
+        <section className="sec alt section-py py-6 md:py-8" id="framework">
           <div className="wrap fw">
             <div className="fw-stick">
                     
@@ -1536,7 +1529,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* CHANNELS / ORBIT */}
-        <section className="sec" id="channels" style={{ overflow: 'hidden' }}>
+        <section className="sec section-py py-6 md:py-8" id="channels" style={{ overflow: 'hidden' }}>
           <div className="wrap orb-grid">
             <div className="rv">
              
@@ -1653,7 +1646,7 @@ export default function PerformanceMarketingPage() {
 
 
 {/* PAID MEDIA SERVICES */}
-               <section className="sec alt paid-media-sec" id="paid-media">
+               <section className="sec alt paid-media-sec section-py py-6 md:py-8" id="paid-media">
                  {/* Decorative sweeping waves and arcs */}
                  <svg className="paid-media-arcs" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none" aria-hidden="true">
                    <path d="M 0 175 C 180 165, 310 85, 435 0 L 0 0 Z" fill="#02050c" fillOpacity="0.7" />
@@ -2095,7 +2088,7 @@ export default function PerformanceMarketingPage() {
                </section>
 
         {/* OUR BEST CAMPAIGNS */}
-        <section className="sec campaigns-sec" id="campaigns">
+        <section className="sec campaigns-sec section-py py-6 md:py-8" id="campaigns">
           {/* Bottom Decorative Glowing Curved Arcs */}
           <svg className="campaigns-bottom-arcs" viewBox="0 0 1440 210" fill="none" preserveAspectRatio="none" aria-hidden="true">
             <defs>
@@ -2227,7 +2220,7 @@ export default function PerformanceMarketingPage() {
         
 
         {/* OLTAO STORY */}
-        <section className="sec alt" id="case">
+        <section className="sec alt section-py py-6 md:py-8" id="case">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -2287,7 +2280,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* TRUST */}
-        <section className="sec" id="trust">
+        <section className="sec section-py py-6 md:py-8" id="trust">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -2354,7 +2347,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* FIT QUIZ */}
-        <section className="sec alt" id="fit">
+        <section className="sec alt section-py py-6 md:py-8" id="fit">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -2555,7 +2548,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* FAQ */}
-        <section className="sec" id="faq">
+        <section className="sec section-py py-6 md:py-8" id="faq">
           <div className="wrap">
             <div className="head rv">
               <h2>
@@ -2651,7 +2644,7 @@ export default function PerformanceMarketingPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="fcta" id="audit">
+        <section className="fcta section-py py-6 md:py-8" id="audit">
           <div className="halo" aria-hidden="true" />
           <div className="wrap in">
            

@@ -1,18 +1,39 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 export default function UkTopStrip() {
   const pathname = usePathname();
+  const stripRef = useRef(null);
+
+  useEffect(() => {
+    if (!pathname || !pathname.startsWith('/lp-')) {
+      document.documentElement.classList.add('has-uk-strip');
+      const updateHeight = () => {
+        if (stripRef.current) {
+          const h = stripRef.current.offsetHeight;
+          if (h > 0) {
+            document.documentElement.style.setProperty('--uk-strip-height', `${h}px`);
+          }
+        }
+      };
+      updateHeight();
+      window.addEventListener('resize', updateHeight);
+      return () => {
+        document.documentElement.classList.remove('has-uk-strip');
+        window.removeEventListener('resize', updateHeight);
+      };
+    }
+  }, [pathname]);
 
   if (pathname && pathname.startsWith('/lp-')) return null;
 
   return (
-    <div id="ukTopStrip" className="uk-top-strip">
+    <div id="ukTopStrip" ref={stripRef} className="uk-top-strip">
       <div className="uk-strip-container">
         <div className="uk-strip-left">
-          <span className="uk-badge">UK</span>
+          <span className="uk-flag-emoji" role="img" aria-label="United Kingdom Flag">🇬🇧</span>
           <span>Registered in United Kingdom</span>
           <span className="uk-sep">|</span>
           <span>

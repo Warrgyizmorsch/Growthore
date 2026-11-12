@@ -61,9 +61,6 @@ export default function BlogPage() {
       <div className="blog-wrap">
         {/* Hero Header */}
         <header className="blog-hero">
-          <div className="blog-eyebrow">
-            <span>Growth Intelligence &amp; Playbooks</span>
-          </div>
           <h1 className="blog-title">
             Engineered Insights for <span className="gradient-text">Measurable Revenue</span>
           </h1>
@@ -74,7 +71,7 @@ export default function BlogPage() {
 
         {/* Featured / Latest Blog Showcase (Big Hero Card) */}
         {selectedCategory === 'All' && !searchQuery.trim() && featuredBlog && (
-          <section className="featured-section" aria-label="Featured Article">
+          <section className="featured-section section-py py-6 md:py-8" aria-label="Featured Article">
             <Link href={`/blog/${featuredBlog.slug}`} className="featured-card">
               <div className="featured-media">
                 <img
@@ -132,7 +129,7 @@ export default function BlogPage() {
         )}
 
         {/* Filter Controls (Category Pills + Search Input) */}
-        <section className="blog-controls-section" aria-label="Filter articles">
+        <section className="blog-controls-section section-py py-6 md:py-8" aria-label="Filter articles">
           <div className="controls-bar">
             <div className="category-tabs" role="tablist">
               {categories.map((cat) => (
@@ -175,7 +172,7 @@ export default function BlogPage() {
         </section>
 
         {/* Regular Blog Grid */}
-        <section className="blog-grid-section" aria-label="Article list">
+        <section className="blog-grid-section section-py py-6 md:py-8" aria-label="Article list">
           {regularBlogs.length > 0 ? (
             <div className="blog-grid">
               {regularBlogs.map((post) => (
@@ -247,7 +244,7 @@ export default function BlogPage() {
         </section>
 
         {/* Bottom CTA Banner */}
-        <section className="blog-cta-banner">
+        <section className="blog-cta-banner section-py py-6 md:py-8">
           <div className="blog-cta-text">
             <h3>Scale Your Acquisition Engine with GrowthOre</h3>
             <p>

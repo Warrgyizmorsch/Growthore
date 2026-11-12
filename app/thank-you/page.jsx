@@ -62,7 +62,7 @@ export default function ThankYouPage() {
         </div>
 
         {/* What Happens Next Section */}
-        <section className="next-section">
+        <section className="next-section section-py py-6 md:py-8">
           <div className="next-header">
             <h3>What Happens Next?</h3>
             <div className="next-divider"></div>

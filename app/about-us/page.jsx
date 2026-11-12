@@ -111,15 +111,6 @@ export default function AboutPage() {
             <div className="spot" />
           </div>
           <div className="wrap">
-            <nav className="crumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span>/</span>
-              <span style={{ color: '#fff' }}>About us</span>
-            </nav>
-            <span className="ak">
-              <span className="live" />
-              About GrowthOre
-            </span>
             <h1 className="ah1">
               <span className="line">
                 <span className="w" style={{ '--i': 0 }}>The team behind</span>
@@ -170,10 +161,9 @@ export default function AboutPage() {
         </section>
 
         {/* WHO WE ARE */}
-        <section className="sec" id="about">
+        <section className="sec section-py py-6 md:py-8" id="about">
           <div className="wrap who">
             <div className="rv">
-              <span className="eyebrow">Who we are</span>
               <h2>A growth team, not a vendor.</h2>
               <p className="lead">
                 GrowthOre is the dedicated performance marketing and growth agency of Warrgyizmorsch. We combine deep commercial
@@ -229,11 +219,10 @@ export default function AboutPage() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="sec alt" id="how">
+        <section className="sec alt section-py py-6 md:py-8" id="how">
           <div className="wrap">
             <div className="head rv">
               <div>
-                <span className="eyebrow">Working with us</span>
                 <h2>What happens after you get in touch.</h2>
               </div>
               <div className="r">
@@ -270,7 +259,7 @@ export default function AboutPage() {
         </section>
 
         {/* TEAM */}
-        <section className="sec" id="team">
+        <section className="sec section-py py-6 md:py-8" id="team">
           <div className="wrap">
             <div className="head rv">
               <div>
@@ -357,11 +346,10 @@ export default function AboutPage() {
         </section>
 
         {/* OFFICES */}
-        <section className="sec alt" id="offices">
+        <section className="sec alt section-py py-6 md:py-8" id="offices">
           <div className="wrap">
             <div className="head rv">
               <div>
-                <span className="eyebrow">Our offices</span>
                 <h2>Visit, call or write to us.</h2>
               </div>
               <div className="r">
@@ -460,11 +448,10 @@ export default function AboutPage() {
         <Marquee />
 
         {/* FAQ */}
-        <section className="sec" id="faq">
+        <section className="sec section-py py-6 md:py-8" id="faq">
           <div className="wrap">
             <div className="head rv" style={{ justifyContent: 'center', textAlign: 'center' }}>
               <div>
-                <span className="eyebrow">Common questions</span>
                 <h2 style={{ maxWidth: 'none' }}>Before you get in touch.</h2>
               </div>
             </div>
@@ -533,7 +520,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="fcta" id="audit">
+        <section className="fcta section-py py-6 md:py-8" id="audit">
           <div className="halo" aria-hidden="true" />
           <div className="wrap in">
             <h2>

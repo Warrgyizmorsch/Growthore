@@ -79,7 +79,7 @@ const KEY_TEAM_MEMBERS = [
 
 export default function HomeTeamSection() {
   return (
-    <section className="home-team-section" id="team-showcase">
+    <section className="home-team-section section-py py-6 md:py-8" id="team-showcase">
       <div className="home-team-wrap">
         {/* Header */}
         <div className="home-team-head">

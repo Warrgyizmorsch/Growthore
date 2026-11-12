@@ -250,7 +250,7 @@ display:none!important
 }
 /* Sticky offset when UK top strip is active */
 .page-social .has-uk-strip .nav, .page-social .has-uk-strip .header {
- top: 31px !important; 
+ top: var(--uk-strip-height, 31px) !important; 
 }
 /* UK Domain Conditional Display */
 .uk-top-strip, .uk-only-content {
@@ -270,7 +270,7 @@ display:none!important
 }
 .page-social .is-uk-domain .nav, .page-social .is-uk-domain .header {
 
-  top: 31px !important;
+  top: var(--uk-strip-height, 31px) !important;
 
 }
 /* UK Trust Top Strip */
@@ -472,13 +472,13 @@ background:#fff;color:#0A1A4A
 }
 /* nav */
 .nav {
-position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);z-index:50;margin-top:16px
+position:sticky;top: var(--uk-strip-height, 31px);z-index:50;margin-top:16px
 }
 .nav .wrap {
 position:relative
 }
 .nav-in {
-display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 22px;border-radius:999px;background:rgba(12,12,13,.6);border:1px solid var(--line);backdrop-filter:blur(22px) saturate(140%)
+display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 22px;border-radius:26px;background:rgba(12,12,13,.6);border:1px solid var(--line);backdrop-filter:blur(22px) saturate(140%)
 }
 .page-social .logo {
 display:inline-flex;align-items:center;gap:10px;text-decoration:none

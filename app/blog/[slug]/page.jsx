@@ -81,15 +81,6 @@ export default function BlogDetailPage({ params }) {
       <div className="detail-ambient" aria-hidden="true" />
 
       <div className="detail-wrap">
-        {/* Breadcrumb Navigation */}
-        <nav className="blog-breadcrumbs" aria-label="Breadcrumbs">
-          <Link href="/">Home</Link>
-          <span className="breadcrumb-sep">/</span>
-          <Link href="/blog">Blog</Link>
-          <span className="breadcrumb-sep">/</span>
-          <span className="breadcrumb-current">{post.category}</span>
-        </nav>
-
         {/* Article Header */}
         <header className="detail-header">
           <div className="detail-meta-top">
@@ -258,7 +249,7 @@ export default function BlogDetailPage({ params }) {
 
         {/* Related Articles Section */}
         {relatedPosts.length > 0 && (
-          <section className="related-section" aria-label="Related Articles">
+          <section className="related-section section-py py-6 md:py-8" aria-label="Related Articles">
             <div className="related-header">
               <h2 className="related-title">Related Insights</h2>
               <Link href="/blog" className="read-btn">
