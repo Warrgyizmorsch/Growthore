@@ -10,6 +10,18 @@ export default async function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/service/meta-ads`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/service/google-ads`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/service/social-media-marketing`,
       lastModified: new Date(),
       changeFrequency: 'weekly',

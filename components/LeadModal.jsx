@@ -28,8 +28,14 @@ export default function LeadModal() {
     if (service) {
       const lower = service.toLowerCase();
       let matched = [];
-      if (lower.includes('performance')) matched.push('Performance Marketing');
-      else if (lower.includes('social')) matched.push('Social Media');
+      if (
+        lower.includes('performance') ||
+        lower.includes('google') ||
+        lower.includes('meta') ||
+        lower.includes('paid')
+      ) {
+        matched.push('Performance Marketing');
+      } else if (lower.includes('social')) matched.push('Social Media');
       else if (lower.includes('ai') || lower.includes('seo')) matched.push('AI SEO');
       else if (lower.includes('not sure')) matched.push('Not sure yet');
       else matched.push('Not sure yet');

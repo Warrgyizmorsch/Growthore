@@ -28,6 +28,16 @@ const nextConfig = {
         destination: '/service/social-media-marketing',
         permanent: true,
       },
+      {
+        source: '/meta-ads',
+        destination: '/service/meta-ads',
+        permanent: true,
+      },
+      {
+        source: '/google-ads',
+        destination: '/service/google-ads',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

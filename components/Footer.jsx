@@ -37,6 +37,8 @@ export default function Footer() {
           <div>
             <h4>Services</h4>
             <Link href="/service/performance-marketing">Performance Marketing</Link>
+            <Link href="/service/meta-ads">Meta Ads</Link>
+            <Link href="/service/google-ads">Google Ads</Link>
             <Link href="/service/social-media-marketing">Social Media Marketing</Link>
             <Link href="/service/ai-seo">AI SEO</Link>
           </div>

@@ -8,6 +8,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -18,6 +19,32 @@ export default function Navbar() {
     }
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    let ticking = false;
+    let isScrolledRef = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (y > 20 && !isScrolledRef) {
+            isScrolledRef = true;
+            setScrolled(true);
+          } else if (y < 6 && isScrolledRef) {
+            isScrolledRef = false;
+            setScrolled(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleLinkClick = () => {
@@ -35,7 +62,7 @@ export default function Navbar() {
   if (pathname && pathname.startsWith('/lp-')) return null;
 
   return (
-    <header className="nav">
+    <header className={`nav ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="wrap">
         <div className="nav-in">
           <Link href="/" className="logo" onClick={handleLinkClick}>
@@ -94,6 +121,39 @@ export default function Navbar() {
                   <div className="nav-drop-info">
                     <span className="nav-drop-title">Performance Marketing</span>
                     <span className="nav-drop-desc">Meta &amp; Google Ads for revenue</span>
+                  </div>
+                  <svg className="nav-drop-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </Link>
+
+                <Link href="/service/meta-ads" className="nav-drop-item" role="menuitem" onClick={handleLinkClick}>
+                  <span className="nav-drop-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="3" y="3" width="18" height="18" rx="5" />
+                      <circle cx="12" cy="12" r="4" />
+                      <circle cx="17.5" cy="6.5" r=".6" fill="currentColor" />
+                    </svg>
+                  </span>
+                  <div className="nav-drop-info">
+                    <span className="nav-drop-title">Meta Ads</span>
+                    <span className="nav-drop-desc">Facebook, Instagram &amp; CAPI</span>
+                  </div>
+                  <svg className="nav-drop-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </Link>
+
+                <Link href="/service/google-ads" className="nav-drop-item" role="menuitem" onClick={handleLinkClick}>
+                  <span className="nav-drop-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <circle cx="10.5" cy="10.5" r="6.5" />
+                      <path d="M20 20l-4.8-4.8" />
+                    </svg>
+                  </span>
+                  <div className="nav-drop-info">
+                    <span className="nav-drop-title">Google Ads</span>
+                    <span className="nav-drop-desc">Search, Shopping &amp; PMax</span>
                   </div>
                   <svg className="nav-drop-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <path d="M5 12h14M13 6l6 6-6 6" />
